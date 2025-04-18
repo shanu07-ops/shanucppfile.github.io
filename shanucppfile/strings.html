@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+   <h1>Strings</h1> 
+
+    <div class="program">
+        <h2>1. Program to Check Anagram</h2>
+        <h3>Explanation: Two Strings are called the anagram if they contain the same characters. However, the order or sequence of the characters can be different.</h3>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <algorithm>
+    using namespace std;
+    
+    int main() {
+        string str1 = "listen";
+        string str2 = "silent";
+        sort(str1.begin(), str1.end());
+        sort(str2.begin(), str2.end());
+        if (str1 == str2) {
+            cout << "Anagram" << endl;
+        } else {
+            cout << "Not Anagram" << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Anagram
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>2. Program to Swapping Pair of Characters</h2>
+        <h3>Explanation: Enter the string from user and enter the characters that you want to swap with one another</h3>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str;
+        char ch1, ch2;
+        cout << "Enter string: ";
+        cin >> str;
+        cout << "Enter two characters to swap: ";
+        cin >> ch1 >> ch2;
+        for (int i = 0; i < str.length(); i++) {
+            if (str[i] == ch1) str[i] = ch2;
+            else if (str[i] == ch2) str[i] = ch1;
+        }
+        cout << "Swapped string: " << str << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Enter string: hello
+    Enter two characters to swap: l e
+    Swapped string: heelo
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>3. Program to Check if a String Contains Only Digits</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "12345";
+        bool onlyDigits = true;
+        for (int i = 0; i < str.length(); i++) {
+            if (!isdigit(str[i])) {
+                onlyDigits = false;
+                break;
+            }
+        }
+        cout << (onlyDigits ? "Only digits" : "Not only digits") << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Only digits
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>4. Program to Perform Deep Copy for String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str1 = "Hello";
+        string str2 = str1;
+        str2[0] = 'W';
+        cout << "Original: " << str1 << endl;
+        cout << "Copied: " << str2 << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Original: Hello
+    Copied: Wello
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>5. Program to Remove All Occurrences of a Given Character from Input String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World";
+        char ch = 'l';
+        for (int i = 0; i < str.length(); i++) {
+            if (str[i] == ch) {
+                str.erase(i, 1);
+                i--;
+            }
+        }
+        cout << "Result: " << str << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Result: Heo Word
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>6. Program to Add Characters to a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello";
+        str += " World";
+        cout << "Result: " << str << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Result: Hello World
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>7. Program to Check Whether a String is a Palindrome</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "radar";
+        string rev = str;
+        reverse(rev.begin(), rev.end());
+        if (str == rev) {
+            cout << "Palindrome" << endl;
+        } else {
+            cout << "Not Palindrome" << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Palindrome
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>8. Program to Convert Enum to String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    enum Color { RED, GREEN, BLUE };
+    
+    int main() {
+        Color c = GREEN;
+        string colorStr;
+        switch (c) {
+            case RED: colorStr = "Red"; break;
+            case GREEN: colorStr = "Green"; break;
+            case BLUE: colorStr = "Blue"; break;
+        }
+        cout << "Color: " << colorStr << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Color: Green
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>9. Program to Count Number of Words in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World C++";
+        int count = 1;
+        for (int i = 0; i < str.length(); i++) {
+            if (str[i] == ' ') count++;
+        }
+        cout << "Word count: " << count << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Word count: 3
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>10. Program to Count the Total Number of Characters in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World";
+        cout << "Character count: " << str.length() << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Character count: 11
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>11. Program to Count the Total Number of Punctuation Characters in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello, World! How are you?";
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (ispunct(str[i])) count++;
+        }
+        cout << "Punctuation count: " << count << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Punctuation count: 3
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>12. Program to Count the Total Number of Vowels and Consonants in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World";
+        int vowels = 0, consonants = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = tolower(str[i]);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') vowels++;
+            else if (isalpha(ch)) consonants++;
+        }
+        cout << "Vowels: " << vowels << endl;
+        cout << "Consonants: " << consonants << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Vowels: 3
+    Consonants: 7
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>13. Program to Determine Whether a Given String is Palindrome</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "racecar";
+        string rev = str;
+        reverse(rev.begin(), rev.end());
+        if (str == rev) {
+            cout << "Palindrome" << endl;
+        } else {
+            cout << "Not Palindrome" << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Palindrome
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>14. Program to Determine Whether One String is a Rotation of Another</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str1 = "waterbottle";
+        string str2 = "erbottlewat";
+        string temp = str1 + str1;
+        if (temp.find(str2) != string::npos) {
+            cout << "Rotation" << endl;
+        } else {
+            cout << "Not Rotation" << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Rotation
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>15. Program to Divide a String in 'N' Equal Parts</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "abcdefgh";
+        int n = 4;
+        int len = str.length();
+        if (len % n == 0) {
+            int partSize = len / n;
+            for (int i = 0; i < len; i += partSize) {
+                cout << str.substr(i, partSize) << endl;
+            }
+        } else {
+            cout << "Cannot divide equally" << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    ab
+    cd
+    ef
+    gh
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>16. Program to Find All Subsets of a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "abc";
+        int n = str.length();
+        for (int i = 0; i < (1 << n); i++) {
+            string subset = "";
+            for (int j = 0; j < n; j++) {
+                if (i & (1 << j)) {
+                    subset += str[j];
+                }
+            }
+            cout << subset << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    
+    a
+    b
+    ab
+    c
+    ac
+    bc
+    abc
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>17. Program to Find All Permutations of a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <algorithm>
+    using namespace std;
+    
+    int main() {
+        string str = "abc";
+        sort(str.begin(), str.end());
+        do {
+            cout << str << endl;
+        } while (next_permutation(str.begin(), str.end()));
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    abc
+    acb
+    bac
+    bca
+    cab
+    cba
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>18. Program to Find Maximum and Minimum Occurring Character in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "grass";
+        int freq[256] = {0};
+        for (int i = 0; i < str.length(); i++) {
+            freq[str[i]]++;
+        }
+        char maxChar = str[0], minChar = str[0];
+        int maxFreq = freq[str[0]], minFreq = freq[str[0]];
+        for (int i = 0; i < 256; i++) {
+            if (freq[i] > maxFreq) {
+                maxFreq = freq[i];
+                maxChar = i;
+            }
+            if (freq[i] > 0 && freq[i] < minFreq) {
+                minFreq = freq[i];
+                minChar = i;
+            }
+        }
+        cout << "Max occurring: " << maxChar << endl;
+        cout << "Min occurring: " << minChar << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Max occurring: s
+    Min occurring: g
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>19. Program to Find Reverse of the String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello";
+        string rev = str;
+        reverse(rev.begin(), rev.end());
+        cout << "Reverse: " << rev << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Reverse: olleH
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>20. Program to Find the Duplicate Characters in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "hello";
+        int freq[256] = {0};
+        for (int i = 0; i < str.length(); i++) {
+            freq[str[i]]++;
+        }
+        for (int i = 0; i < 256; i++) {
+            if (freq[i] > 1) {
+                cout << (char)i << " ";
+            }
+        }
+        cout << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    l 
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>21. Program to Find the Duplicate Words in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    #include <map>
+    using namespace std;
+    
+    int main() {
+        string str = "hello world hello c++";
+        stringstream ss(str);
+        string word;
+        map<string, int> freq;
+        while (ss >> word) {
+            freq[word]++;
+        }
+        for (auto pair : freq) {
+            if (pair.second > 1) {
+                cout << pair.first << " ";
+            }
+        }
+        cout << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    hello 
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>22. Program to Find the Frequency of Characters</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "hello";
+        int freq[256] = {0};
+        for (int i = 0; i < str.length(); i++) {
+            freq[str[i]]++;
+        }
+        for (int i = 0; i < 256; i++) {
+            if (freq[i] > 0) {
+                cout << (char)i << ": " << freq[i] << endl;
+            }
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    e: 1
+    h: 1
+    l: 2
+    o: 1
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>23. Program to Find the Largest and Smallest Word in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World C++ Programming";
+        stringstream ss(str);
+        string word, smallest, largest;
+        ss >> smallest;
+        largest = smallest;
+        while (ss >> word) {
+            if (word.length() < smallest.length()) smallest = word;
+            if (word.length() > largest.length()) largest = word;
+        }
+        cout << "Smallest: " << smallest << endl;
+        cout << "Largest: " << largest << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Smallest: C++
+    Largest: Programming
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>24. Program to Find the Longest Repeating Sequence in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "aabbaabbaa";
+        string longest = "";
+        for (int i = 0; i < str.length(); i++) {
+            for (int j = i + 1; j <= str.length(); j++) {
+                string sub = str.substr(i, j - i);
+                if (str.find(sub, i + sub.length()) != string::npos && sub.length() > longest.length()) {
+                    longest = sub;
+                }
+            }
+        }
+        cout << "Longest repeating: " << longest << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Longest repeating: aabb
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>25. Program to Find the Most Repeated Word in a Text File</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <fstream>
+    #include <string>
+    #include <map>
+    using namespace std;
+    
+    int main() {
+        ifstream file("sample.txt");
+        string word, mostRepeated;
+        map<string, int> freq;
+        int maxFreq = 0;
+        while (file >> word) {
+            freq[word]++;
+            if (freq[word] > maxFreq) {
+                maxFreq = freq[word];
+                mostRepeated = word;
+            }
+        }
+        cout << "Most repeated word: " << mostRepeated << " (" << maxFreq << " times)" << endl;
+        file.close();
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Most repeated word: hello (3 times)
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>26. Program to Find the Number of Words in the Given Text File</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <fstream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        ifstream file("sample.txt");
+        string word;
+        int count = 0;
+        while (file >> word) {
+            count++;
+        }
+        cout << "Word count: " << count << endl;
+        file.close();
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Word count: 5
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>27. Program to Get a Character From the Given String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello";
+        int index = 2;
+        cout << "Character at index " << index << ": " << str[index] << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Character at index 2: l
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>28. Program to Insert a String into Another String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str1 = "Hello World";
+        string str2 = "Beautiful ";
+        int pos = 6;
+        str1.insert(pos, str2);
+        cout << "Result: " << str1 << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Result: Hello Beautiful World
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>29. Program to Print a New Line in String (Each Word in Newline)</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World C++";
+        stringstream ss(str);
+        string word;
+        while (ss >> word) {
+            cout << word << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Hello
+    World
+    C++
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>30. Program to Print Even Length Words</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World C++ Programming";
+        stringstream ss(str);
+        string word;
+        while (ss >> word) {
+            if (word.length() % 2 == 0) {
+                cout << word << " ";
+            }
+        }
+        cout << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Hello World 
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>31. Program to Print Smallest and Biggest Possible Palindrome Word in a Given String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    using namespace std;
+    
+    int main() {
+        string str = "racecar level eye";
+        stringstream ss(str);
+        string word, smallest, largest;
+        while (ss >> word) {
+            string rev = word;
+            reverse(rev.begin(), rev.end());
+            if (word == rev) {
+                if (smallest.empty() || word.length() < smallest.length()) smallest = word;
+                if (largest.empty() || word.length() > largest.length()) largest = word;
+            }
+        }
+        cout << "Smallest palindrome: " << smallest << endl;
+        cout << "Largest palindrome: " << largest << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Smallest palindrome: eye
+    Largest palindrome: racecar
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>32. Program to Remove All White Spaces from a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World C++";
+        string result = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (str[i] != ' ') result += str[i];
+        }
+        cout << "Result: " << result << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Result: HelloWorldC++
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>33. Program to Replace Lower-Case Characters with Upper-Case and Vice-Versa</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World";
+        for (int i = 0; i < str.length(); i++) {
+            if (islower(str[i])) str[i] = toupper(str[i]);
+            else if (isupper(str[i])) str[i] = tolower(str[i]);
+        }
+        cout << "Result: " << str << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Result: hELLO wORLD
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>34. Program to Replace the Spaces of a String with a Specific Character</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World C++";
+        char ch = '-';
+        for (int i = 0; i < str.length(); i++) {
+            if (str[i] == ' ') str[i] = ch;
+        }
+        cout << "Result: " << str << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Result: Hello-World-C++
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>35. Program to Separate the Individual Characters from a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello";
+        for (int i = 0; i < str.length(); i++) {
+            cout << str[i] << " ";
+        }
+        cout << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    H e l l o 
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>36. Program to Split into a Number of Sub-Strings</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World C++";
+        stringstream ss(str);
+        string word;
+        while (ss >> word) {
+            cout << word << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Hello
+    World
+    C++
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>37. Program to Swap Two String Variables Without Using Third or Temp Variable</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str1 = "Hello";
+        string str2 = "World";
+        cout << "Before: " << str1 << " " << str2 << endl;
+        str1 += str2;
+        str2 = str1.substr(0, str1.length() - str2.length());
+        str1 = str1.substr(str2.length());
+        cout << "After: " << str1 << " " << str2 << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Before: Hello World
+    After: World Hello
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>38. Read Two String User Input and Check if First Contains Second</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str1, str2;
+        cout << "Enter first string: ";
+        cin >> str1;
+        cout << "Enter second string: ";
+        cin >> str2;
+        if (str1.find(str2) != string::npos) {
+            cout << "Contains" << endl;
+        } else {
+            cout << "Does not contain" << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Enter first string: HelloWorld
+    Enter second string: World
+    Contains
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>39. Reverse String Word by Word</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    using namespace std;
+    
+    int main() {
+        string str = "Hello World C++";
+        stringstream ss(str);
+        string word, result;
+        while (ss >> word) {
+            result = word + " " + result;
+        }
+        cout << "Reversed: " << result << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Reversed: C++ World Hello 
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>40. Check if Two Strings Are Created with Same Characters</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <algorithm>
+    using namespace std;
+    
+    int main() {
+        string str1 = "listen";
+        string str2 = "silent";
+        sort(str1.begin(), str1.end());
+        sort(str2.begin(), str2.end());
+        if (str1 == str2) {
+            cout << "Same characters" << endl;
+        } else {
+            cout << "Different characters" << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Same characters
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>41. Find Out First Non-Repeated Character from Input String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int main() {
+        string str = "hello";
+        int freq[256] = {0};
+        for (int i = 0; i < str.length(); i++) {
+            freq[str[i]]++;
+        }
+        for (int i = 0; i < str.length(); i++) {
+            if (freq[str[i]] == 1) {
+                cout << "First non-repeated: " << str[i] << endl;
+                break;
+            }
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    First non-repeated: h
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>42. Count All Words in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    using namespace std;
+    
+    int countWords(string str) {
+        stringstream ss(str);
+        string word;
+        int count = 0;
+        while (ss >> word) {
+            count++;
+        }
+        return count;
+    }
+    
+    int main() {
+        string str = "Hello World C++";
+        cout << "Word count: " << countWords(str) << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Word count: 3
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>43. Count All Vowels in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    int countVowels(string str) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            char ch = tolower(str[i]);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') count++;
+        }
+        return count;
+    }
+    
+    int main() {
+        string str = "Hello World";
+        cout << "Vowel count: " << countVowels(str) << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Vowel count: 3
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>44. Sort Names in Alphabetical Order</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <vector>
+    #include <algorithm>
+    using namespace std;
+    
+    int main() {
+        vector<string> names = {"John", "Alice", "Bob", "Eve"};
+        sort(names.begin(), names.end());
+        for (string name : names) {
+            cout << name << endl;
+        }
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Alice
+    Bob
+    Eve
+    John
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>45. Count All the Words in a String</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    #include <sstream>
+    using namespace std;
+    
+    int countWords(string str) {
+        stringstream ss(str);
+        string word;
+        int count = 0;
+        while (ss >> word) {
+            count++;
+        }
+        return count;
+    }
+    
+    int main() {
+        string str = "Hello World C++ Programming";
+        cout << "Word count: " << countWords(str) << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Word count: 4
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>46. Compute Future Investment Value</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <cmath>
+    using namespace std;
+    
+    double futureValue(double principal, double rate, int years) {
+        return principal * pow(1 + rate / 100, years);
+    }
+    
+    int main() {
+        double principal = 1000, rate = 5;
+        int years = 10;
+        cout << "Future Value: " << futureValue(principal, rate, years) << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Future Value: 1628.89
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>47. Print Characters Between Two Characters</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    void printRange(char start, char end) {
+        for (char ch = start; ch <= end; ch++) {
+            cout << ch << " ";
+        }
+        cout << endl;
+    }
+    
+    int main() {
+        printRange('A', 'P');
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    A B C D E F G H I J K L M N O P 
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>48. Check Whether a String is a Valid Password</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    bool isValidPassword(string password) {
+        if (password.length() < 8) return false;
+        bool hasDigit = false, hasUpper = false;
+        for (int i = 0; i < password.length(); i++) {
+            if (isdigit(password[i])) hasDigit = true;
+            if (isupper(password[i])) hasUpper = true;
+        }
+        return hasDigit && hasUpper;
+    }
+    
+    int main() {
+        string password = "Password123";
+        cout << (isValidPassword(password) ? "Valid" : "Invalid") << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Valid
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>49. Display the Current Date and Time</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <ctime>
+    using namespace std;
+    
+    int main() {
+        time_t now = time(0);
+        char* dt = ctime(&now);
+        cout << "Current Date and Time: " << dt;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Current Date and Time: Tue Mar 25 12:00:00 2025
+        </pre>
+    </div>
+    
+
+    
+    <div class="program">
+        <h2>50. Check if One Integer is the Middle Point Between Two Others</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    bool isMiddle(int a, int b, int c) {
+        return (a + c == 2 * b) || (b + c == 2 * a) || (a + b == 2 * c);
+    }
+    
+    int main() {
+        int a = 2, b = 4, c = 6;
+        cout << (isMiddle(a, b, c) ? "True" : "False") << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    True
+        </pre>
+    </div>
+</body>
+</html>

@@ -1,0 +1,2758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cpp Programmes</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+    <h1>Basic Programmes Constructs</h1>
+    <div class="program"> <h2>1. Write a C++ program to print ‘Hello World!’ on screen</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        cout << "Hello World!";
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Hello World! </pre> </div>
+        <div class="program"> <h2>2. Write a C++ program to print the sum of two numbers</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int num1, num2;
+        cout << "Enter first number: ";
+        cin >> num1;
+        cout << "Enter second number: ";
+        cin >> num2;
+        cout << "Sum: " << num1 + num2;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter first number: 10 Enter second number: 20 Sum: 30 </pre> </div>
+        <div class="program"> <h2>3. Write a C++ program that takes two numbers and display the product of two numbers</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int num1, num2;
+        cout << "Enter first number: ";
+        cin >> num1;
+        cout << "Enter second number: ";
+        cin >> num2;
+        cout << "Product: " << num1 * num2;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter first number: 5 Enter second number: 4 Product: 20 </pre> </div>
+        <div class="program"> <h2>4. Write a C++ program to print the sum, multiply, subtract, divide and remainder of two numbers</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double num1, num2;
+        cout << "Enter first number: ";
+        cin >> num1;
+        cout << "Enter second number: ";
+        cin >> num2;
+        cout << "Sum: " << num1 + num2 << endl;
+        cout << "Multiply: " << num1 * num2 << endl;
+        cout << "Subtract: " << num1 - num2 << endl;
+        if (num2 != 0) {
+        cout << "Divide: " << num1 / num2 << endl;
+        cout << "Remainder: " << (int)num1 % (int)num2 << endl;
+        } else {
+        cout << "Division and remainder not possible by zero" << endl;
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter first number: 10 Enter second number: 3 Sum: 13 Multiply: 30 Subtract: 7 Divide: 3.33333 Remainder: 1 </pre> </div>
+        <div class="program"> <h2>5. Write a C++ program that takes five numbers as input to calculate and print the average of the numbers</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double num1, num2, num3, num4, num5;
+        cout << "Enter five numbers: ";
+        cin >> num1 >> num2 >> num3 >> num4 >> num5;
+        double average = (num1 + num2 + num3 + num4 + num5) / 5;
+        cout << "Average: " << average;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter five numbers: 10 20 30 40 50 Average: 30 </pre> </div>
+        <div class="program"> <h2>6. Write a C++ program to swap two variables</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int a, b, temp;
+        cout << "Enter first number: ";
+        cin >> a;
+        cout << "Enter second number: ";
+        cin >> b;
+        cout << "Before swapping: a = " << a << ", b = " << b << endl;
+        temp = a;
+        a = b;
+        b = temp;
+        cout << "After swapping: a = " << a << ", b = " << b;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter first number: 5 Enter second number: 10 Before swapping: a = 5, b = 10 After swapping: a = 10, b = 5 </pre> </div>
+        <div class="program"> <h2>7. Write a C++ program to convert a decimal number to binary numbers</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int decimal, binary[32], i = 0;
+        cout << "Enter a decimal number: ";
+        cin >> decimal;
+        while (decimal > 0) {
+        binary[i] = decimal % 2;
+        decimal /= 2;
+        i++;
+        }
+        cout << "Binary: ";
+        for (int j = i - 1; j >= 0; j--) {
+        cout << binary[j];
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a decimal number: 10 Binary: 1010 </pre> </div>
+        <div class="program"> <h2>8. Write a C++ program to convert a binary number to decimal number</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> #include <cmath> using namespace std;
+        int main() {
+        long long binary;
+        int decimal = 0, i = 0;
+        cout << "Enter a binary number: ";
+        cin >> binary;
+        while (binary > 0) {
+        decimal += (binary % 10) * pow(2, i);
+        binary /= 10;
+        i++;
+        }
+        cout << "Decimal: " << decimal;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a binary number: 1010 Decimal: 10 </pre> </div>
+        <div class="program"> <h2>9. Write a C++ program to check whether C++ is installed on your computer or not</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        cout << "If this message is displayed, C++ is installed and working on your computer!";
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> If this message is displayed, C++ is installed and working on your computer! </pre> </div>
+        <div class="program"> <h2>10. Write a C++ program and compute the sum of the digits of an integer</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int num, sum = 0;
+        cout << "Enter an integer: ";
+        cin >> num;
+        while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+        }
+        cout << "Sum of digits: " << sum;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter an integer: 123 Sum of digits: 6 </pre> </div>
+        <div class="program"> <h2>11. Write a C++ program to compare two numbers</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int num1, num2;
+        cout << "Enter first number: ";
+        cin >> num1;
+        cout << "Enter second number: ";
+        cin >> num2;
+        if (num1 > num2) {
+        cout << num1 << " is greater than " << num2;
+        } else if (num1 < num2) {
+        cout << num1 << " is less than " << num2;
+        } else {
+        cout << "Both numbers are equal";
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter first number: 10 Enter second number: 5 10 is greater than 5 </pre> </div>
+        <div class="program"> <h2>12. Write a C++ program to count the letters, spaces, numbers and other characters of an input string</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        string str;
+        int letters = 0, spaces = 0, numbers = 0, others = 0;
+        cout << "Enter a string: ";
+        getline(cin, str);
+        for (char c : str) {
+        if (isalpha(c)) letters++;
+        else if (isspace(c)) spaces++;
+        else if (isdigit(c)) numbers++;
+        else others++;
+        }
+        cout << "Letters: " << letters << endl;
+        cout << "Spaces: " << spaces << endl;
+        cout << "Numbers: " << numbers << endl;
+        cout << "Other characters: " << others;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a string: Hello 123! Letters: 5 Spaces: 1 Numbers: 3 Other characters: 1 </pre> </div>
+        <div class="program"> <h2>13. Write a C++ program to print the ascii value of a given character</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        char c;
+        cout << "Enter a character: ";
+        cin >> c;
+        cout << "ASCII value of " << c << " is: " << (int)c;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a character: A ASCII value of A is: 65 </pre> </div>
+        <div class="program"> <h2>14. Write a C++ program that accepts an integer (n) and computes the value of n+nn+nnn</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int n;
+        cout << "Enter an integer: ";
+        cin >> n;
+        int nn = n * 10 + n;
+        int nnn = n * 100 + nn;
+        int result = n + nn + nnn;
+        cout << "Result (n + nn + nnn): " << result;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter an integer: 5 Result (n + nn + nnn): 615 </pre> </div>
+        <div class="program"> <h2>15. Write a C++ program to display the system time</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> #include <ctime> using namespace std;
+        int main() {
+        time_t now = time(0);
+        char* dt = ctime(&now);
+        cout << "Current system time: " << dt;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Current system time: Tue Mar 25 12:00:00 2025 </pre> </div>
+        <div class="program"> <h2>16. Write a C++ program to print the odd numbers from 1 to 20</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        cout << "Odd numbers from 1 to 20:" << endl;
+        for (int i = 1; i <= 20; i += 2) {
+        cout << i << endl;
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Odd numbers from 1 to 20: 1 3 5 7 9 11 13 15 17 19 </pre> </div>
+        <div class="program"> <h2>17. Write a C++ program to print the even numbers from 1 to 20</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        cout << "Even numbers from 1 to 20:" << endl;
+        for (int i = 2; i <= 20; i += 2) {
+        cout << i << endl;
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Even numbers from 1 to 20: 2 4 6 8 10 12 14 16 18 20 </pre> </div>
+        <div class="program"> <h2>18. Write a C++ program to convert a string to an integer</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> #include <string> using namespace std;
+        int main() {
+        string str;
+        cout << "Enter a string number: ";
+        cin >> str;
+        int num = stoi(str);
+        cout << "Converted integer: " << num;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a string number: 123 Converted integer: 123 </pre> </div>
+        <div class="program"> <h2>19. Write a C++ program to convert seconds to hour, minute and seconds</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int seconds, hours, minutes;
+        cout << "Enter total seconds: ";
+        cin >> seconds;
+        hours = seconds / 3600;
+        minutes = (seconds % 3600) / 60;
+        seconds = seconds % 60;
+        cout << hours << " hours, " << minutes << " minutes, " << seconds << " seconds";
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter total seconds: 3665 1 hours, 1 minutes, 5 seconds </pre> </div>
+        <div class="program"> <h2>20. Write a C++ program to compute the sum of the first 100 prime numbers</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        bool isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+        }
+        return true;
+        }
+        
+        int main() {
+        int count = 0, num = 2, sum = 0;
+        while (count < 100) {
+        if (isPrime(num)) {
+        sum += num;
+        count++;
+        }
+        num++;
+        }
+        cout << "Sum of first 100 prime numbers: " << sum;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Sum of first 100 prime numbers: 24133 </pre> </div>
+        <div class="program"> <h2>21. Write a C++ program to compute the square root of a given integer</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> #include <cmath> using namespace std;
+        int main() {
+        int num;
+        cout << "Enter an integer: ";
+        cin >> num;
+        if (num >= 0) {
+        cout << "Square root: " << sqrt(num);
+        } else {
+        cout << "Square root not defined for negative numbers";
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter an integer: 16 Square root: 4 </pre> </div>
+        <div class="program"> <h2>22. Write a C++ program to check if a positive number is a palindrome or not</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int num, original, reversed = 0;
+        cout << "Enter a positive number: ";
+        cin >> num;
+        if (num < 0) {
+        cout << "Please enter a positive number";
+        } else {
+        original = num;
+        while (num > 0) {
+        reversed = reversed * 10 + num % 10;
+        num /= 10;
+        }
+        if (original == reversed) {
+        cout << original << " is a palindrome";
+        } else {
+        cout << original << " is not a palindrome";
+        }
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a positive number: 121 121 is a palindrome </pre> </div>
+        <div class="program"> <h2>23. Write a C++ program to add two numbers without using any arithmetic operators</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int a, b;
+        cout << "Enter first number: ";
+        cin >> a;
+        cout << "Enter second number: ";
+        cin >> b;
+        while (b != 0) {
+        int carry = a & b;
+        a = a ^ b;
+        b = carry << 1;
+        }
+        cout << "Sum: " << a;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter first number: 5 Enter second number: 3 Sum: 8 </pre> </div>
+        <div class="program"> <h2>24. Write a C++ program to add all the digits of a given positive integer</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int num, sum = 0;
+        cout << "Enter a positive integer: ";
+        cin >> num;
+        if (num < 0) {
+        cout << "Please enter a positive integer";
+        } else {
+        while (num > 0) {
+        sum += num % 10;
+        num /= 10;
+        }
+        cout << "Sum of digits: " << sum;
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a positive integer: 123 Sum of digits: 6 </pre> </div>
+        <div class="program"> <h2>25. C++ program to find area of circle</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        const double PI = 3.14159;
+        double radius;
+        cout << "Enter radius of circle: ";
+        cin >> radius;
+        cout << "Area of circle: " << PI * radius * radius;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter radius of circle: 5 Area of circle: 78.5397 </pre> </div>
+        <div class="program"> <h2>26. C++ Program to find area of rectangle</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double length, width;
+        cout << "Enter length of rectangle: ";
+        cin >> length;
+        cout << "Enter width of rectangle: ";
+        cin >> width;
+        cout << "Area of rectangle: " << length * width;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter length of rectangle: 5 Enter width of rectangle: 3 Area of rectangle: 15 </pre> </div>
+        <div class="program"> <h2>27. C++ Program to find area of triangle</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double base, height;
+        cout << "Enter base of triangle: ";
+        cin >> base;
+        cout << "Enter height of triangle: ";
+        cin >> height;
+        cout << "Area of triangle: " << 0.5 * base * height;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter base of triangle: 4 Enter height of triangle: 3 Area of triangle: 6 </pre> </div>
+        <div class="program"> <h2>28. C++ Program to find area of equilateral triangle</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> #include <cmath> using namespace std;
+        int main() {
+        double side;
+        cout << "Enter side of equilateral triangle: ";
+        cin >> side;
+        cout << "Area of equilateral triangle: " << (sqrt(3) / 4) * side * side;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter side of equilateral triangle: 4 Area of equilateral triangle: 6.9282 </pre> </div>
+        <div class="program"> <h2>29. C++ Program to find area of rhombus</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double d1, d2;
+        cout << "Enter first diagonal of rhombus: ";
+        cin >> d1;
+        cout << "Enter second diagonal of rhombus: ";
+        cin >> d2;
+        cout << "Area of rhombus: " << (d1 * d2) / 2;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter first diagonal of rhombus: 6 Enter second diagonal of rhombus: 8 Area of rhombus: 24 </pre> </div>
+        <div class="program"> <h2>30. C++ Program to find area of parallelogram</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double base, height;
+        cout << "Enter base of parallelogram: ";
+        cin >> base;
+        cout << "Enter height of parallelogram: ";
+        cin >> height;
+        cout << "Area of parallelogram: " << base * height;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter base of parallelogram: 5 Enter height of parallelogram: 4 Area of parallelogram: 20 </pre> </div>
+        <div class="program"> <h2>31. C++ Program to find area of Prism</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double baseArea, height;
+        cout << "Enter base area of prism: ";
+        cin >> baseArea;
+        cout << "Enter height of prism: ";
+        cin >> height;
+        cout << "Area of prism: " << 2 * baseArea + height * baseArea;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter base area of prism: 10 Enter height of prism: 5 Area of prism: 70 </pre> </div>
+        <div class="program"> <h2>32. C++ Program to find volume of sphere</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        const double PI = 3.14159;
+        double radius;
+        cout << "Enter radius of sphere: ";
+        cin >> radius;
+        cout << "Volume of sphere: " << (4.0 / 3) * PI * radius * radius * radius;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter radius of sphere: 3 Volume of sphere: 113.097 </pre> </div>
+        <div class="program"> <h2>33. C++ Program to find volume of cylinder</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        const double PI = 3.14159;
+        double radius, height;
+        cout << "Enter radius of cylinder: ";
+        cin >> radius;
+        cout << "Enter height of cylinder: ";
+        cin >> height;
+        cout << "Volume of cylinder: " << PI * radius * radius * height;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter radius of cylinder: 2 Enter height of cylinder: 5 Volume of cylinder: 62.8318 </pre> </div>
+        <div class="program"> <h2>34. C++ Program to find volume of cuboid</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double length, width, height;
+        cout << "Enter length of cuboid: ";
+        cin >> length;
+        cout << "Enter width of cuboid: ";
+        cin >> width;
+        cout << "Enter height of cuboid: ";
+        cin >> height;
+        cout << "Volume of cuboid: " << length * width * height;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter length of cuboid: 3 Enter width of cuboid: 4 Enter height of cuboid: 5 Volume of cuboid: 60 </pre> </div>
+        <div class="program"> <h2>35. C++ Program to find volume of cone</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        const double PI = 3.14159;
+        double radius, height;
+        cout << "Enter radius of cone: ";
+        cin >> radius;
+        cout << "Enter height of cone: ";
+        cin >> height;
+        cout << "Volume of cone: " << (1.0 / 3) * PI * radius * radius * height;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter radius of cone: 3 Enter height of cone: 4 Volume of cone: 37.6991 </pre> </div>
+        <div class="program"> <h2>36. C++ program to find surface area of cuboid</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double length, width, height;
+        cout << "Enter length of cuboid: ";
+        cin >> length;
+        cout << "Enter width of cuboid: ";
+        cin >> width;
+        cout << "Enter height of cuboid: ";
+        cin >> height;
+        cout << "Surface area of cuboid: " << 2 * (length * width + width * height + height * length);
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter length of cuboid: 3 Enter width of cuboid: 4 Enter height of cuboid: 5 Surface area of cuboid: 94 </pre> </div>
+        <div class="program"> <h2>37. C++ program to find surface area of cylinder</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        const double PI = 3.14159;
+        double radius, height;
+        cout << "Enter radius of cylinder: ";
+        cin >> radius;
+        cout << "Enter height of cylinder: ";
+        cin >> height;
+        cout << "Surface area of cylinder: " << 2 * PI * radius * (radius + height);
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter radius of cylinder: 2 Enter height of cylinder: 5 Surface area of cylinder: 43.9823 </pre> </div>
+        <div class="program"> <h2>38. C++ program to find surface area of cube</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double side;
+        cout << "Enter side of cube: ";
+        cin >> side;
+        cout << "Surface area of cube: " << 6 * side * side;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter side of cube: 4 Surface area of cube: 96 </pre> </div>
+        <div class="program"> <h2>39. C++ program to calculate average marks</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int n;
+        double marks, sum = 0;
+        cout << "Enter number of subjects: ";
+        cin >> n;
+        for (int i = 0; i < n; i++) {
+        cout << "Enter marks for subject " << i + 1 << ": ";
+        cin >> marks;
+        sum += marks;
+        }
+        cout << "Average marks: " << sum / n;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter number of subjects: 3 Enter marks for subject 1: 85 Enter marks for subject 2: 90 Enter marks for subject 3: 95 Average marks: 90 </pre> </div>
+        <div class="program"> <h2>40. C++ program to check vowel or consonant</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        char c;
+        cout << "Enter a character: ";
+        cin >> c;
+        c = tolower(c);
+        if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+        cout << c << " is a vowel";
+        } else if (isalpha(c)) {
+        cout << c << " is a consonant";
+        } else {
+        cout << c << " is not a letter";
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a character: e e is a vowel </pre> </div>
+        <div class="program"> <h2>41. C++ program to sum of N numbers</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int n, num, sum = 0;
+        cout << "Enter number of elements: ";
+        cin >> n;
+        for (int i = 0; i < n; i++) {
+        cout << "Enter number " << i + 1 << ": ";
+        cin >> num;
+        sum += num;
+        }
+        cout << "Sum: " << sum;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter number of elements: 3 Enter number 1: 10 Enter number 2: 20 Enter number 3: 30 Sum: 60 </pre> </div>
+        <div class="program"> <h2>42. C++ program to find factorial of any number</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int n;
+        unsigned long long fact = 1;
+        cout << "Enter a number: ";
+        cin >> n;
+        if (n < 0) {
+        cout << "Factorial not defined for negative numbers";
+        } else {
+        for (int i = 1; i <= n; i++) {
+        fact *= i;
+        }
+        cout << "Factorial: " << fact;
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a number: 5 Factorial: 120 </pre> </div>
+        <div class="program"> <h2>43. C++ Program to calculate electricity bill</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int units;
+        double bill;
+        cout << "Enter units consumed: ";
+        cin >> units;
+        if (units <= 100) bill = units * 1.5;
+        else if (units <= 200) bill = 100 * 1.5 + (units - 100) * 2.0;
+        else bill = 100 * 1.5 + 100 * 2.0 + (units - 200) * 3.0;
+        cout << "Electricity bill: " << bill;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter units consumed: 250 Electricity bill: 500 </pre> </div>
+        <div class="program"> <h2>44. C++ Program To Calculate CGPA Percentage</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        float cgpa;
+        cout << "Enter CGPA (out of 10): ";
+        cin >> cgpa;
+        if (cgpa >= 0 && cgpa <= 10) {
+        cout << "Percentage: " << cgpa * 9.5 << "%";
+        } else {
+        cout << "Invalid CGPA";
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter CGPA (out of 10): 8.5 Percentage: 80.75% </pre> </div>
+        <div class="program"> <h2>45. C++ Program to calculate compound interest</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> #include <cmath> using namespace std;
+        int main() {
+        double principal, rate, time, amount;
+        cout << "Enter principal amount: ";
+        cin >> principal;
+        cout << "Enter annual interest rate (%): ";
+        cin >> rate;
+        cout << "Enter time (years): ";
+        cin >> time;
+        amount = principal * pow(1 + rate / 100, time);
+        cout << "Compound Interest: " << amount - principal;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter principal amount: 1000 Enter annual interest rate (%): 5 Enter time (years): 2 Compound Interest: 102.5 </pre> </div>
+        <div class="program"> <h2>46. C++ Program To Calculate Batting Average</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int runs, outs;
+        cout << "Enter total runs scored: ";
+        cin >> runs;
+        cout << "Enter total times out: ";
+        cin >> outs;
+        if (outs == 0) {
+        cout << "Batting average cannot be calculated";
+        } else {
+        cout << "Batting average: " << (float)runs / outs;
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter total runs scored: 500 Enter total times out: 10 Batting average: 50 </pre> </div>
+        <div class="program"> <h2>47. C++ Program to Calculate Commission Percentage</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        double sales, commission, rate;
+        cout << "Enter total sales amount: ";
+        cin >> sales;
+        cout << "Enter commission amount: ";
+        cin >> commission;
+        rate = (commission / sales) * 100;
+        cout << "Commission percentage: " << rate << "%";
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter total sales amount: 1000 Enter commission amount: 50 Commission percentage: 5% </pre> </div>
+        <div class="program"> <h2>48. C++ Program To Find Distance Between Two Points</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> #include <cmath> using namespace std;
+        int main() {
+        double x1, y1, x2, y2;
+        cout << "Enter x1: ";
+        cin >> x1;
+        cout << "Enter y1: ";
+        cin >> y1;
+        cout << "Enter x2: ";
+        cin >> x2;
+        cout << "Enter y2: ";
+        cin >> y2;
+        double distance = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+        cout << "Distance: " << distance;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter x1: 0 Enter y1: 0 Enter x2: 3 Enter y2: 4 Distance: 5 </pre> </div>
+        <div class="program"> <h2>49. C++ Program To Calculate Power Of Number</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int base, exp, result = 1;
+        cout << "Enter base: ";
+        cin >> base;
+        cout << "Enter exponent: ";
+        cin >> exp;
+        for (int i = 0; i < exp; i++) {
+        result *= base;
+        }
+        cout << "Result: " << result;
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter base: 2 Enter exponent: 3 Result: 8 </pre> </div>
+        <div class="program"> <h2>50. Write a C++ program to take three numbers from the user and print the greatest number</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int num1, num2, num3;
+        cout << "Enter three numbers: ";
+        cin >> num1 >> num2 >> num3;
+        if (num1 >= num2 && num1 >= num3) {
+        cout << "Greatest number: " << num1;
+        } else if (num2 >= num1 && num2 >= num3) {
+        cout << "Greatest number: " << num2;
+        } else {
+        cout << "Greatest number: " << num3;
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter three numbers: 10 25 15 Greatest number: 25 </pre> </div>
+        <div class="program"> <h2>51. Write a C++ program to find the number of days in a month</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int month, year;
+        cout << "Enter month (1-12): ";
+        cin >> month;
+        cout << "Enter year: ";
+        cin >> year;
+        if (month == 2) {
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        cout << "Days: 29";
+        } else {
+        cout << "Days: 28";
+        }
+        } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+        cout << "Days: 30";
+        } else if (month >= 1 && month <= 12) {
+        cout << "Days: 31";
+        } else {
+        cout << "Invalid month";
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter month (1-12): 2 Enter year: 2020 Days: 29 </pre> </div>
+        <div class="program"> <h2>52. Write a C++ program to test a number is positive or negative</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int num;
+        cout << "Enter a number: ";
+        cin >> num;
+        if (num > 0) {
+        cout << num << " is positive";
+        } else if (num < 0) {
+        cout << num << " is negative";
+        } else {
+        cout << num << " is zero";
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a number: -5 -5 is negative </pre> </div>
+        <div class="program"> <h2>53. Write a C++ Program to accept number of week’s day (1-7) and print name of the day</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int day;
+        cout << "Enter day number (1-7): ";
+        cin >> day;
+        switch (day) {
+        case 1: cout << "Monday"; break;
+        case 2: cout << "Tuesday"; break;
+        case 3: cout << "Wednesday"; break;
+        case 4: cout << "Thursday"; break;
+        case 5: cout << "Friday"; break;
+        case 6: cout << "Saturday"; break;
+        case 7: cout << "Sunday"; break;
+        default: cout << "Invalid day number";
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter day number (1-7): 3 Wednesday </pre> </div>
+        <div class="program"> <h2>54. Write a C++ program that takes a year from user and print whether that year is a leap year or not</h2> <h3>Source Code:</h3> <pre><code> #include <iostream> using namespace std;
+        int main() {
+        int year;
+        cout << "Enter a year: ";
+        cin >> year;
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        cout << year << " is a leap year";
+        } else {
+        cout << year << " is not a leap year";
+        }
+        return 0;
+        }
+        </code></pre>
+        
+        <h3>Output:</h3> <pre> Enter a year: 2020 2020 is a leap year </pre> </div>
+            
+            <div class="program">
+                <h2>55. Write a C++ program to input 5 numbers from keyboard and find their sum and average</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                double num, sum = 0;
+                cout << "Enter 5 numbers:" << endl;
+                for (int i = 0; i < 5; i++) {
+                    cout << "Number " << i + 1 << ": ";
+                    cin >> num;
+                    sum += num;
+                }
+                cout << "Sum: " << sum << endl;
+                cout << "Average: " << sum / 5;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter 5 numbers:
+            Number 1: 10
+            Number 2: 20
+            Number 3: 30
+            Number 4: 40
+            Number 5: 50
+            Sum: 150
+            Average: 30
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>56. Write a program in C++ to display the first 5 natural numbers</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                cout << "First 5 natural numbers:" << endl;
+                for (int i = 1; i <= 5; i++) {
+                    cout << i << endl;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            First 5 natural numbers:
+            1
+            2
+            3
+            4
+            5
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>57. Write a C++ program to check vowel or consonant</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                char c;
+                cout << "Enter a character: ";
+                cin >> c;
+                c = tolower(c);
+                if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                    cout << c << " is a vowel";
+                } else if (isalpha(c)) {
+                    cout << c << " is a consonant";
+                } else {
+                    cout << c << " is not a letter";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a character: b
+            b is a consonant
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>58. Write a C++ program to display the cube of the number up to a given integer</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int n;
+                cout << "Enter an integer: ";
+                cin >> n;
+                for (int i = 1; i <= n; i++) {
+                    cout << "Cube of " << i << " is: " << i * i * i << endl;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter an integer: 3
+            Cube of 1 is: 1
+            Cube of 2 is: 8
+            Cube of 3 is: 27
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>59. Write a C++ program to display the n terms of odd natural numbers and their sum</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int n, sum = 0;
+                cout << "Enter number of terms: ";
+                cin >> n;
+                cout << "Odd natural numbers:" << endl;
+                for (int i = 1, count = 0; count < n; i += 2, count++) {
+                    cout << i << endl;
+                    sum += i;
+                }
+                cout << "Sum: " << sum;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter number of terms: 4
+            Odd natural numbers:
+            1
+            3
+            5
+            7
+            Sum: 16
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>60. Write a C++ program to display the multiplication table of a given integer</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num;
+                cout << "Enter a number: ";
+                cin >> num;
+                cout << "Multiplication table of " << num << ":" << endl;
+                for (int i = 1; i <= 10; i++) {
+                    cout << num << " x " << i << " = " << num * i << endl;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 5
+            Multiplication table of 5:
+            5 x 1 = 5
+            5 x 2 = 10
+            5 x 3 = 15
+            5 x 4 = 20
+            5 x 5 = 25
+            5 x 6 = 30
+            5 x 7 = 35
+            5 x 8 = 40
+            5 x 9 = 45
+            5 x 10 = 50
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>61. Write a C++ program that reads an integer and checks whether it is negative, zero, or positive</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num;
+                cout << "Enter an integer: ";
+                cin >> num;
+                if (num > 0) {
+                    cout << num << " is positive";
+                } else if (num < 0) {
+                    cout << num << " is negative";
+                } else {
+                    cout << num << " is zero";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter an integer: -7
+            -7 is negative
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>62. Write a C++ program that reads a positive integer and counts the number of digits</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num, count = 0;
+                cout << "Enter a positive integer: ";
+                cin >> num;
+                if (num < 0) {
+                    cout << "Please enter a positive integer";
+                } else {
+                    do {
+                        count++;
+                        num /= 10;
+                    } while (num > 0);
+                    cout << "Number of digits: " << count;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a positive integer: 12345
+            Number of digits: 5
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>63. Write a C++ program that accepts three numbers and checks if all numbers are equal or not</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num1, num2, num3;
+                cout << "Enter three numbers: ";
+                cin >> num1 >> num2 >> num3;
+                if (num1 == num2 && num2 == num3) {
+                    cout << "All numbers are equal";
+                } else {
+                    cout << "Numbers are not equal";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter three numbers: 5 5 5
+            All numbers are equal
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>64. Write a C++ program that accepts three numbers from the user and checks if numbers are in "increasing” or “decreasing” order</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num1, num2, num3;
+                cout << "Enter three numbers: ";
+                cin >> num1 >> num2 >> num3;
+                if (num1 < num2 && num2 < num3) {
+                    cout << "Numbers are in increasing order";
+                } else if (num1 > num2 && num2 > num3) {
+                    cout << "Numbers are in decreasing order";
+                } else {
+                    cout << "Numbers are neither in increasing nor decreasing order";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter three numbers: 10 20 30
+            Numbers are in increasing order
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>65. Write a C++ program that determines a student’s grade (81-100: A, 61-80: B, 41-60: C, 0-40: D)</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int marks;
+                cout << "Enter marks (0-100): ";
+                cin >> marks;
+                if (marks >= 81 && marks <= 100) {
+                    cout << "Grade: A";
+                } else if (marks >= 61 && marks <= 80) {
+                    cout << "Grade: B";
+                } else if (marks >= 41 && marks <= 60) {
+                    cout << "Grade: C";
+                } else if (marks >= 0 && marks <= 40) {
+                    cout << "Grade: D";
+                } else {
+                    cout << "Invalid marks";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter marks (0-100): 75
+            Grade: B
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>66. Write a C++ program to create a simple calculator (1. ADDITION, 2. SUBTRACTION, 3. MULTIPLICATION, 4. DIVISION, 5. EXPONENTIAL, 6. PERCENTAGE, 7. EXIT)</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <cmath>
+            using namespace std;
+            
+            int main() {
+                int choice;
+                double num1, num2, result;
+                do {
+                    cout << "\n1. Addition\n2. Subtraction\n3. Multiplication\n4. Division\n5. Exponential\n6. Percentage\n7. Exit\nEnter choice: ";
+                    cin >> choice;
+                    if (choice >= 1 && choice <= 6) {
+                        cout << "Enter two numbers: ";
+                        cin >> num1 >> num2;
+                    }
+                    switch (choice) {
+                        case 1: result = num1 + num2; cout << "Result: " << result; break;
+                        case 2: result = num1 - num2; cout << "Result: " << result; break;
+                        case 3: result = num1 * num2; cout << "Result: " << result; break;
+                        case 4: 
+                            if (num2 != 0) {
+                                result = num1 / num2; cout << "Result: " << result;
+                            } else {
+                                cout << "Division by zero not allowed";
+                            }
+                            break;
+                        case 5: result = pow(num1, num2); cout << "Result: " << result; break;
+                        case 6: result = (num1 / num2) * 100; cout << "Result: " << result << "%"; break;
+                        case 7: cout << "Exiting..."; break;
+                        default: cout << "Invalid choice";
+                    }
+                } while (choice != 7);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            1. Addition
+            2. Subtraction
+            3. Multiplication
+            4. Division
+            5. Exponential
+            6. Percentage
+            7. Exit
+            Enter choice: 1
+            Enter two numbers: 5 3
+            Result: 8
+            1. Addition
+            2. Subtraction
+            3. Multiplication
+            4. Division
+            5. Exponential
+            6. Percentage
+            7. Exit
+            Enter choice: 7
+            Exiting...
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>67. Write a C++ program to concatenate two strings</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str1, str2;
+                cout << "Enter first string: ";
+                getline(cin, str1);
+                cout << "Enter second string: ";
+                getline(cin, str2);
+                cout << "Concatenated string: " << str1 + str2;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter first string: Hello
+            Enter second string: World
+            Concatenated string: HelloWorld
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>68. Write a C++ program to convert all characters in a string to lowercase</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                for (char &c : str) {
+                    c = tolower(c);
+                }
+                cout << "Lowercase string: " << str;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string: HELLO
+            Lowercase string: hello
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>69. Write a C++ program to convert all characters in a string to uppercase</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                for (char &c : str) {
+                    c = toupper(c);
+                }
+                cout << "Uppercase string: " << str;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string: hello
+            Uppercase string: HELLO
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>70. Write a C++ program to trim a string (remove whitespaces)</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                size_t start = str.find_first_not_of(" \t");
+                size_t end = str.find_last_not_of(" \t");
+                if (start == string::npos) {
+                    str = "";
+                } else {
+                    str = str.substr(start, end - start + 1);
+                }
+                cout << "Trimmed string: " << str;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string:   Hello World   
+            Trimmed string: Hello World
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>71. Write a C++ program to get a substring of a given string between two specified positions</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                int start, end;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                cout << "Enter start position: ";
+                cin >> start;
+                cout << "Enter end position: ";
+                cin >> end;
+                if (start >= 0 && end < str.length() && start <= end) {
+                    cout << "Substring: " << str.substr(start, end - start + 1);
+                } else {
+                    cout << "Invalid positions";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string: HelloWorld
+            Enter start position: 2
+            Enter end position: 6
+            Substring: lloWo
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>72. Write a C++ program to replace all the ‘d’ characters with ‘f’ characters</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                for (char &c : str) {
+                    if (c == 'd' || c == 'D') c = 'f';
+                }
+                cout << "Modified string: " << str;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string: daddy
+            Modified string: faffy
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>73. Write a C++ program to get the length of a given string</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                cout << "Length of string: " << str.length();
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string: Hello World
+            Length of string: 11
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>74. Write a C++ program to print current date and time in the specified format</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <ctime>
+            using namespace std;
+            
+            int main() {
+                time_t now = time(0);
+                tm *ltm = localtime(&now);
+                cout << "Date: " << ltm->tm_mday << "/" << 1 + ltm->tm_mon << "/" << 1900 + ltm->tm_year << endl;
+                cout << "Time: " << ltm->tm_hour << ":" << ltm->tm_min << ":" << ltm->tm_sec;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Date: 25/3/2025
+            Time: 12:00:00
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>75. Write a C++ program to get the character at the given index within the String</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                int index;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                cout << "Enter index: ";
+                cin >> index;
+                if (index >= 0 && index < str.length()) {
+                    cout << "Character at index " << index << ": " << str[index];
+                } else {
+                    cout << "Invalid index";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string: Hello
+            Enter index: 1
+            Character at index 1: e
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>76. Write a C++ program to remove a particular character from a string</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                char ch;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                cout << "Enter character to remove: ";
+                cin >> ch;
+                for (int i = 0; i < str.length();) {
+                    if (str[i] == ch) {
+                        str.erase(i, 1);
+                    } else {
+                        i++;
+                    }
+                }
+                cout << "Modified string: " << str;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string: Hello
+            Enter character to remove: l
+            Modified string: Heo
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>77. Write a C++ program to reverse a String</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                cout << "Enter a string: ";
+                getline(cin, str);
+                int start = 0, end = str.length() - 1;
+                while (start < end) {
+                    char temp = str[start];
+                    str[start] = str[end];
+                    str[end] = temp;
+                    start++;
+                    end--;
+                }
+                cout << "Reversed string: " << str;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string: Hello
+            Reversed string: olleH
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>78. Write a C++ program to remove HTML tags from a string</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                cout << "Enter a string with HTML tags: ";
+                getline(cin, str);
+                string result;
+                bool inTag = false;
+                for (char c : str) {
+                    if (c == '<') inTag = true;
+                    else if (c == '>') inTag = false;
+                    else if (!inTag) result += c;
+                }
+                cout << "String without HTML tags: " << result;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a string with HTML tags: <p>Hello</p>
+            String without HTML tags: Hello
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>79. Write a C++ program to count total number of lines from a string</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int main() {
+                string str;
+                int lines = 1;
+                cout << "Enter a multi-line string (end with Ctrl+D or Ctrl+Z):" << endl;
+                getline(cin, str, char(EOF));
+                for (char c : str) {
+                    if (c == '\n') lines++;
+                }
+                cout << "Total number of lines: " << lines;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a multi-line string (end with Ctrl+D or Ctrl+Z):
+            Hello
+            World
+            Total number of lines: 2
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>80. Write a C++ Program to Accept the Marks of a Student and find Total Marks and Percentage</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int n, marks, total = 0;
+                cout << "Enter number of subjects: ";
+                cin >> n;
+                for (int i = 0; i < n; i++) {
+                    cout << "Enter marks for subject " << i + 1 << ": ";
+                    cin >> marks;
+                    total += marks;
+                }
+                cout << "Total marks: " << total << endl;
+                cout << "Percentage: " << (float)total / n << "%";
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter number of subjects: 3
+            Enter marks for subject 1: 80
+            Enter marks for subject 2: 85
+            Enter marks for subject 3: 90
+            Total marks: 255
+            Percentage: 85%
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>81. Write a C++ program to print numbers from 1 to 10 using loop</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                for (int i = 1; i <= 10; i++) {
+                    cout << i << endl;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            1
+            2
+            3
+            4
+            5
+            6
+            7
+            8
+            9
+            10
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>82. Write a C++ program to calculate the sum of first 10 natural numbers using loop</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int sum = 0;
+                for (int i = 1; i <= 10; i++) {
+                    sum += i;
+                }
+                cout << "Sum of first 10 natural numbers: " << sum;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Sum of first 10 natural numbers: 55
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>83. Write a C++ program to print multiplication table of given number</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num;
+                cout << "Enter a number: ";
+                cin >> num;
+                for (int i = 1; i <= 10; i++) {
+                    cout << num << " x " << i << " = " << num * i << endl;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 4
+            4 x 1 = 4
+            4 x 2 = 8
+            4 x 3 = 12
+            4 x 4 = 16
+            4 x 5 = 20
+            4 x 6 = 24
+            4 x 7 = 28
+            4 x 8 = 32
+            4 x 9 = 36
+            4 x 10 = 40
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>84. Write a C++ program to find the factorial value of any number entered through the keyboard</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int n;
+                unsigned long long fact = 1;
+                cout << "Enter a number: ";
+                cin >> n;
+                if (n < 0) {
+                    cout << "Factorial not defined for negative numbers";
+                } else {
+                    for (int i = 1; i <= n; i++) {
+                        fact *= i;
+                    }
+                    cout << "Factorial: " << fact;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 6
+            Factorial: 720
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>85. Write a C++ program that prompts the user to input an integer and then outputs the number with the digits reversed order</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num, reversed = 0;
+                cout << "Enter an integer: ";
+                cin >> num;
+                while (num > 0) {
+                    reversed = reversed * 10 + num % 10;
+                    num /= 10;
+                }
+                cout << "Reversed number: " << reversed;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter an integer: 1234
+            Reversed number: 4321
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>86. Write a C++ program that reads a set of integers, and then prints the sum of the even and odd integers using loop</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int n, num, evenSum = 0, oddSum = 0;
+                cout << "Enter number of integers: ";
+                cin >> n;
+                for (int i = 0; i < n; i++) {
+                    cout << "Enter integer " << i + 1 << ": ";
+                    cin >> num;
+                    if (num % 2 == 0) evenSum += num;
+                    else oddSum += num;
+                }
+                cout << "Sum of even integers: " << evenSum << endl;
+                cout << "Sum of odd integers: " << oddSum;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter number of integers: 5
+            Enter integer 1: 1
+            Enter integer 2: 2
+            Enter integer 3: 3
+            Enter integer 4: 4
+            Enter integer 5: 5
+            Sum of even integers: 6
+            Sum of odd integers: 9
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>87. Write a C++ program to check whether the number is a prime number or not</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num;
+                bool isPrime = true;
+                cout << "Enter a number: ";
+                cin >> num;
+                if (num <= 1) isPrime = false;
+                for (int i = 2; i * i <= num; i++) {
+                    if (num % i == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
+                if (isPrime) cout << num << " is a prime number";
+                else cout << num << " is not a prime number";
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 7
+            7 is a prime number
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>88. Write a C++ program to calculate HCF of two given numbers using loop</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int a, b, hcf;
+                cout << "Enter two numbers: ";
+                cin >> a >> b;
+                int x = a, y = b;
+                while (y != 0) {
+                    int temp = y;
+                    y = x % y;
+                    x = temp;
+                }
+                hcf = x;
+                cout << "HCF of " << a << " and " << b << " is: " << hcf;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter two numbers: 12 18
+            HCF of 12 and 18 is: 6
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>89. Write a C++ program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeros</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num, positive = 0, negative = 0, zeros = 0;
+                char choice;
+                do {
+                    cout << "Enter a number: ";
+                    cin >> num;
+                    if (num > 0) positive++;
+                    else if (num < 0) negative++;
+                    else zeros++;
+                    cout << "Do you want to continue (y/n)? ";
+                    cin >> choice;
+                } while (choice == 'y' || choice == 'Y');
+                cout << "Positive: " << positive << endl;
+                cout << "Negative: " << negative << endl;
+                cout << "Zeros: " << zeros;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 5
+            Do you want to continue (y/n)? y
+            Enter a number: -3
+            Do you want to continue (y/n)? y
+            Enter a number: 0
+            Do you want to continue (y/n)? n
+            Positive: 1
+            Negative: 1
+            Zeros: 1
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>90. Write a C++ program to enter the numbers till the user wants and at the end the program should display the largest and smallest numbers entered</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num, largest = INT_MIN, smallest = INT_MAX;
+                char choice;
+                do {
+                    cout << "Enter a number: ";
+                    cin >> num;
+                    if (num > largest) largest = num;
+                    if (num < smallest) smallest = num;
+                    cout << "Do you want to continue (y/n)? ";
+                    cin >> choice;
+                } while (choice == 'y' || choice == 'Y');
+                cout << "Largest: " << largest << endl;
+                cout << "Smallest: " << smallest;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 10
+            Do you want to continue (y/n)? y
+            Enter a number: 5
+            Do you want to continue (y/n)? y
+            Enter a number: 15
+            Do you want to continue (y/n)? n
+            Largest: 15
+            Smallest: 5
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>91. Write a C++ program to print out all Armstrong numbers between 1 to 600 using loop</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                cout << "Armstrong numbers between 1 and 600:" << endl;
+                for (int i = 1; i <= 600; i++) {
+                    int num = i, sum = 0, digits = 0, temp = i;
+                    while (temp > 0) {
+                        digits++;
+                        temp /= 10;
+                    }
+                    temp = i;
+                    while (temp > 0) {
+                        int digit = temp % 10;
+                        sum += pow(digit, digits);
+                        temp /= 10;
+                    }
+                    if (sum == i) cout << i << endl;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Armstrong numbers between 1 and 600:
+            1
+            2
+            3
+            4
+            5
+            6
+            7
+            8
+            9
+            153
+            370
+            371
+            407
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>92. Write a C++ program to count total number of notes in entered amount using loop</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int amount, notes[] = {2000, 500, 200, 100, 50, 20, 10, 5, 2, 1}, count = 0;
+                cout << "Enter amount: ";
+                cin >> amount;
+                for (int i = 0; i < 10; i++) {
+                    count += amount / notes[i];
+                    amount %= notes[i];
+                }
+                cout << "Total number of notes: " << count;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter amount: 2345
+            Total number of notes: 5
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>93. Write a C++ program to print Fibonacci series of n terms where n is input by user using loop</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int n, a = 0, b = 1, next;
+                cout << "Enter number of terms: ";
+                cin >> n;
+                cout << "Fibonacci series:" << endl;
+                for (int i = 0; i < n; i++) {
+                    cout << a << endl;
+                    next = a + b;
+                    a = b;
+                    b = next;
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter number of terms: 5
+            Fibonacci series:
+            0
+            1
+            1
+            2
+            3
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>94. Write a C++ program to calculate the sum of following series where n is input by user</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int n;
+                double sum = 0;
+                cout << "Enter n for series 1 + 1/2 + 1/3 + ... + 1/n: ";
+                cin >> n;
+                for (int i = 1; i <= n; i++) {
+                    sum += 1.0 / i;
+                }
+                cout << "Sum of series: " << sum;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter n for series 1 + 1/2 + 1/3 + ... + 1/n: 4
+            Sum of series: 2.08333
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>95. Write a C++ method to compute the average of three numbers</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            double average(double a, double b, double c) {
+                return (a + b + c) / 3;
+            }
+            
+            int main() {
+                double num1, num2, num3;
+                cout << "Enter three numbers: ";
+                cin >> num1 >> num2 >> num3;
+                cout << "Average: " << average(num1, num2, num3);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter three numbers: 10 20 30
+            Average: 20
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>96. Write a C++ method to find the smallest number among three numbers</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int smallest(int a, int b, int c) {
+                if (a <= b && a <= c) return a;
+                else if (b <= c) return b;
+                else return c;
+            }
+            
+            int main() {
+                int num1, num2, num3;
+                cout << "Enter three numbers: ";
+                cin >> num1 >> num2 >> num3;
+                cout << "Smallest: " << smallest(num1, num2, num3);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter three numbers: 10 5 15
+            Smallest: 5
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>97. Write a C++ method to check whether a year entered by the user is a leap year or not</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            bool isLeapYear(int year) {
+                return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+            }
+            
+            int main() {
+                int year;
+                cout << "Enter a year: ";
+                cin >> year;
+                if (isLeapYear(year)) {
+                    cout << year << " is a leap year";
+                } else {
+                    cout << year << " is not a leap year";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a year: 2024
+            2024 is a leap year
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>98. Write a C++ program to accept a float value of number and return a rounded float value</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <cmath>
+            using namespace std;
+            
+            int main() {
+                float num;
+                cout << "Enter a float number: ";
+                cin >> num;
+                cout << "Rounded value: " << round(num);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a float number: 5.7
+            Rounded value: 6
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>99. Write a C++ method to compute the sum of the digits in an integer</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int sumOfDigits(int num) {
+                int sum = 0;
+                while (num > 0) {
+                    sum += num % 10;
+                    num /= 10;
+                }
+                return sum;
+            }
+            
+            int main() {
+                int num;
+                cout << "Enter an integer: ";
+                cin >> num;
+                cout << "Sum of digits: " << sumOfDigits(num);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter an integer: 123
+            Sum of digits: 6
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>100. Write a C++ method to calculate the area of a triangle</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            double triangleArea(double base, double height) {
+                return 0.5 * base * height;
+            }
+            
+            int main() {
+                double base, height;
+                cout << "Enter base of triangle: ";
+                cin >> base;
+                cout << "Enter height of triangle: ";
+                cin >> height;
+                cout << "Area of triangle: " << triangleArea(base, height);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter base of triangle: 5
+            Enter height of triangle: 4
+            Area of triangle: 10
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>101. Write a C++ method to find the area of a pentagon</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <cmath>
+            using namespace std;
+            
+            double pentagonArea(double side) {
+                return (sqrt(5 * (5 + 2 * sqrt(5))) * side * side) / 4;
+            }
+            
+            int main() {
+                double side;
+                cout << "Enter side of pentagon: ";
+                cin >> side;
+                cout << "Area of pentagon: " << pentagonArea(side);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter side of pentagon: 5
+            Area of pentagon: 43.0119
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>102. Write a C++ method to find if a number is even or not</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            bool isEven(int num) {
+                return num % 2 == 0;
+            }
+            
+            int main() {
+                int num;
+                cout << "Enter a number: ";
+                cin >> num;
+                if (isEven(num)) {
+                    cout << num << " is even";
+                } else {
+                    cout << num << " is odd";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 6
+            6 is even
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>103. Write a C++ method to check if a number is a palindrome number or not</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            bool isPalindrome(int num) {
+                int original = num, reversed = 0;
+                while (num > 0) {
+                    reversed = reversed * 10 + num % 10;
+                    num /= 10;
+                }
+                return original == reversed;
+            }
+            
+            int main() {
+                int num;
+                cout << "Enter a number: ";
+                cin >> num;
+                if (isPalindrome(num)) {
+                    cout << num << " is a palindrome";
+                } else {
+                    cout << num << " is not a palindrome";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 121
+            121 is a palindrome
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>104. Write a C++ method to display prime numbers between 1 to 20</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            void displayPrimes() {
+                cout << "Prime numbers between 1 and 20:" << endl;
+                for (int num = 2; num <= 20; num++) {
+                    bool isPrime = true;
+                    for (int i = 2; i * i <= num; i++) {
+                        if (num % i == 0) {
+                            isPrime = false;
+                            break;
+                        }
+                    }
+                    if (isPrime) cout << num << endl;
+                }
+            }
+            
+            int main() {
+                displayPrimes();
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Prime numbers between 1 and 20:
+            2
+            3
+            5
+            7
+            11
+            13
+            17
+            19
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>105. Write a C++ method to find GCD and LCM of Two Numbers</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int gcd(int a, int b) {
+                while (b != 0) {
+                    int temp = b;
+                    b = a % b;
+                    a = temp;
+                }
+                return a;
+            }
+            
+            int lcm(int a, int b) {
+                return (a * b) / gcd(a, b);
+            }
+            
+            int main() {
+                int num1, num2;
+                cout << "Enter two numbers: ";
+                cin >> num1 >> num2;
+                cout << "GCD: " << gcd(num1, num2) << endl;
+                cout << "LCM: " << lcm(num1, num2);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter two numbers: 12 18
+            GCD: 6
+            LCM: 36
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>106. Write a C++ method to find factorial using recursion</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            unsigned long long factorial(int n) {
+                if (n <= 1) return 1;
+                return n * factorial(n - 1);
+            }
+            
+            int main() {
+                int num;
+                cout << "Enter a number: ";
+                cin >> num;
+                if (num < 0) {
+                    cout << "Factorial not defined for negative numbers";
+                } else {
+                    cout << "Factorial: " << factorial(num);
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a number: 5
+            Factorial: 120
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>107. Write a C++ program to reverse an integer number</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int num, reversed = 0;
+                cout << "Enter an integer: ";
+                cin >> num;
+                while (num > 0) {
+                    reversed = reversed * 10 + num % 10;
+                    num /= 10;
+                }
+                cout << "Reversed number: " << reversed;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter an integer: 1234
+            Reversed number: 4321
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>108. Write a C++ program to round a float number to specified decimals</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <iomanip>
+            using namespace std;
+            
+            int main() {
+                float num;
+                int decimals;
+                cout << "Enter a float number: ";
+                cin >> num;
+                cout << "Enter number of decimal places: ";
+                cin >> decimals;
+                cout << "Rounded number: " << fixed << setprecision(decimals) << num;
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a float number: 5.6789
+            Enter number of decimal places: 2
+            Rounded number: 5.68
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>109. Write a C++ program to test if a double number is an integer</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                double num;
+                cout << "Enter a double number: ";
+                cin >> num;
+                if (num == (int)num) {
+                    cout << num << " is an integer";
+                } else {
+                    cout << num << " is not an integer";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a double number: 5.0
+            5 is an integer
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>110. Write a C++ program to round up the result of integer division</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            int main() {
+                int a, b;
+                cout << "Enter dividend: ";
+                cin >> a;
+                cout << "Enter divisor: ";
+                cin >> b;
+                if (b != 0) {
+                    int result = (a + b - 1) / b;
+                    cout << "Rounded up division: " << result;
+                } else {
+                    cout << "Division by zero not allowed";
+                }
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter dividend: 10
+            Enter divisor: 3
+            Rounded up division: 4
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>111. Write a C++ program to convert Roman number to an integer number</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <string>
+            using namespace std;
+            
+            int romanToInt(string s) {
+                int result = 0;
+                for (int i = 0; i < s.length(); i++) {
+                    if (s[i] == 'I') {
+                        if (s[i + 1] == 'V' || s[i + 1] == 'X') result -= 1;
+                        else result += 1;
+                    } else if (s[i] == 'V') result += 5;
+                    else if (s[i] == 'X') {
+                        if (s[i + 1] == 'L' || s[i + 1] == 'C') result -= 10;
+                        else result += 10;
+                    } else if (s[i] == 'L') result += 50;
+                    else if (s[i] == 'C') {
+                        if (s[i + 1] == 'D' || s[i + 1] == 'M') result -= 100;
+                        else result += 100;
+                    } else if (s[i] == 'D') result += 500;
+                    else if (s[i] == 'M') result += 1000;
+                }
+                return result;
+            }
+            
+            int main() {
+                string roman;
+                cout << "Enter a Roman numeral: ";
+                cin >> roman;
+                cout << "Integer value: " << romanToInt(roman);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a Roman numeral: XIV
+            Integer value: 14
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>112. Write a C++ program to convert a float value to absolute value</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            #include <cmath>
+            using namespace std;
+            
+            int main() {
+                float num;
+                cout << "Enter a float number: ";
+                cin >> num;
+                cout << "Absolute value: " << fabs(num);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Enter a float number: -5.7
+            Absolute value: 5.7
+                </pre>
+            </div>
+            
+            
+            
+            <div class="program">
+                <h2>113. Create a class entering the command line arguments from the user and show all the arguments as output</h2>
+                <h3>Source Code:</h3>
+                <pre><code>
+            #include <iostream>
+            using namespace std;
+            
+            class CommandLine {
+            public:
+                void displayArgs(int argc, char* argv[]) {
+                    cout << "Number of arguments: " << argc << endl;
+                    cout << "Arguments:" << endl;
+                    for (int i = 0; i < argc; i++) {
+                        cout << "Argument " << i << ": " << argv[i] << endl;
+                    }
+                }
+            };
+            
+            int main(int argc, char* argv[]) {
+                CommandLine cl;
+                cl.displayArgs(argc, argv);
+                return 0;
+            }
+                </code></pre>
+                <h3>Output:</h3>
+                <pre>
+            Number of arguments: 3
+            Arguments:
+            Argument 0: ./program
+            Argument 1: hello
+            Argument 2: world
+                </pre>
+            </div>
+            
+            
+</body>
+</html>

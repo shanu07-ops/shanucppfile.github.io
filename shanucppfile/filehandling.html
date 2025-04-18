@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+
+
+    <h1>File Handling</h1>
+
+      
+        
+        <div class="program">
+            <h2>1. Create a New Text File and Write Text</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        using namespace std;
+        
+        int main() {
+            ofstream file("output.txt");
+            if (file.is_open()) {
+                file << "Hello, this is a sample text file!" << endl;
+                file << "Writing some more data." << endl;
+                cout << "File created and text written successfully." << endl;
+                file.close();
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        File created and text written successfully.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>2. Open and Display Contents of a Text File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            ifstream file("output.txt");
+            string line;
+            if (file.is_open()) {
+                while (getline(file, line)) {
+                    cout << line << endl;
+                }
+                file.close();
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Hello, this is a sample text file!
+        Writing some more data.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>3. Count the Number of Lines in a Text File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            ifstream file("output.txt");
+            string line;
+            int count = 0;
+            if (file.is_open()) {
+                while (getline(file, line)) {
+                    count++;
+                }
+                cout << "Number of lines: " << count << endl;
+                file.close();
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Number of lines: 2
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>4. Count the Number of Words in a Text File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        #include <sstream>
+        using namespace std;
+        
+        int main() {
+            ifstream file("output.txt");
+            string line, word;
+            int count = 0;
+            if (file.is_open()) {
+                while (getline(file, line)) {
+                    stringstream ss(line);
+                    while (ss >> word) {
+                        count++;
+                    }
+                }
+                cout << "Number of words: " << count << endl;
+                file.close();
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Number of words: 10
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>5. Copy Contents of One Text File to Another</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            ifstream source("output.txt");
+            ofstream dest("copy.txt");
+            string line;
+            if (source.is_open() && dest.is_open()) {
+                while (getline(source, line)) {
+                    dest << line << endl;
+                }
+                cout << "File copied successfully." << endl;
+                source.close();
+                dest.close();
+            } else {
+                cout << "Unable to open files." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        File copied successfully.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>6. Find and Replace a Specific Word in a Text File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            ifstream inFile("output.txt");
+            ofstream outFile("temp.txt");
+            string line, oldWord = "sample", newWord = "example";
+            if (inFile.is_open() && outFile.is_open()) {
+                while (getline(inFile, line)) {
+                    size_t pos = 0;
+                    while ((pos = line.find(oldWord, pos)) != string::npos) {
+                        line.replace(pos, oldWord.length(), newWord);
+                        pos += newWord.length();
+                    }
+                    outFile << line << endl;
+                }
+                inFile.close();
+                outFile.close();
+                remove("output.txt");
+                rename("temp.txt", "output.txt");
+                cout << "Word replaced successfully." << endl;
+            } else {
+                cout << "Unable to open files." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Word replaced successfully.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>7. Append New Data to an Existing Text File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        using namespace std;
+        
+        int main() {
+            ofstream file("output.txt", ios::app);
+            if (file.is_open()) {
+                file << "Appending new data." << endl;
+                cout << "Data appended successfully." << endl;
+                file.close();
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Data appended successfully.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>8. Sort Lines of a Text File in Alphabetical Order</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        #include <vector>
+        #include <algorithm>
+        using namespace std;
+        
+        int main() {
+            ifstream inFile("output.txt");
+            vector<string> lines;
+            string line;
+            if (inFile.is_open()) {
+                while (getline(inFile, line)) {
+                    lines.push_back(line);
+                }
+                inFile.close();
+                sort(lines.begin(), lines.end());
+                ofstream outFile("output.txt");
+                if (outFile.is_open()) {
+                    for (string l : lines) {
+                        outFile << l << endl;
+                    }
+                    outFile.close();
+                    cout << "Lines sorted successfully." << endl;
+                }
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Lines sorted successfully.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>9. Merge Multiple Text Files into a Single File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            string files[] = {"file1.txt", "file2.txt"};
+            ofstream outFile("merged.txt");
+            if (outFile.is_open()) {
+                for (string filename : files) {
+                    ifstream inFile(filename);
+                    string line;
+                    if (inFile.is_open()) {
+                        while (getline(inFile, line)) {
+                            outFile << line << endl;
+                        }
+                        inFile.close();
+                    }
+                }
+                outFile.close();
+                cout << "Files merged successfully." << endl;
+            } else {
+                cout << "Unable to open output file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Files merged successfully.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>10. Split a Large Text File into Smaller Files</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            ifstream inFile("output.txt");
+            int linesPerFile = 1, fileCount = 1, lineCount = 0;
+            string line;
+            ofstream outFile;
+            if (inFile.is_open()) {
+                while (getline(inFile, line)) {
+                    if (lineCount % linesPerFile == 0) {
+                        if (outFile.is_open()) outFile.close();
+                        outFile.open("split" + to_string(fileCount++) + ".txt");
+                    }
+                    outFile << line << endl;
+                    lineCount++;
+                }
+                inFile.close();
+                if (outFile.is_open()) outFile.close();
+                cout << "File split successfully into " << fileCount - 1 << " files." << endl;
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        File split successfully into 3 files.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>11. Search for a String in a Text File and Display Line Numbers</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            ifstream file("output.txt");
+            string line, search = "data";
+            int lineNum = 0;
+            if (file.is_open()) {
+                while (getline(file, line)) {
+                    lineNum++;
+                    if (line.find(search) != string::npos) {
+                        cout << "Found at line " << lineNum << ": " << line << endl;
+                    }
+                }
+                file.close();
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Found at line 2: Writing some more data.
+        Found at line 3: Appending new data.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>12. Encrypt Contents of a Text File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            ifstream inFile("output.txt");
+            ofstream outFile("encrypted.txt");
+            string line;
+            if (inFile.is_open() && outFile.is_open()) {
+                while (getline(inFile, line)) {
+                    for (char& c : line) {
+                        c += 1; // Simple Caesar cipher shift by 1
+                    }
+                    outFile << line << endl;
+                }
+                inFile.close();
+                outFile.close();
+                cout << "File encrypted successfully." << endl;
+            } else {
+                cout << "Unable to open files." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        File encrypted successfully.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>13. Decrypt Contents of a Text File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        int main() {
+            ifstream inFile("encrypted.txt");
+            ofstream outFile("decrypted.txt");
+            string line;
+            if (inFile.is_open() && outFile.is_open()) {
+                while (getline(inFile, line)) {
+                    for (char& c : line) {
+                        c -= 1; // Reverse Caesar cipher shift by 1
+                    }
+                    outFile << line << endl;
+                }
+                inFile.close();
+                outFile.close();
+                cout << "File decrypted successfully." << endl;
+            } else {
+                cout << "Unable to open files." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        File decrypted successfully.
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>14. Read and Display CSV File in Tabular Form</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        #include <sstream>
+        using namespace std;
+        
+        int main() {
+            ifstream file("data.csv");
+            string line;
+            if (file.is_open()) {
+                while (getline(file, line)) {
+                    stringstream ss(line);
+                    string item;
+                    while (getline(ss, item, ',')) {
+                        cout << item << "\t";
+                    }
+                    cout << endl;
+                }
+                file.close();
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Name    Age     City    
+        John    25      New York        
+        Alice   30      London  
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>15. Calculate Average of Numbers in a File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        using namespace std;
+        
+        int main() {
+            ifstream file("numbers.txt");
+            double num, sum = 0;
+            int count = 0;
+            if (file.is_open()) {
+                while (file >> num) {
+                    sum += num;
+                    count++;
+                }
+                file.close();
+                if (count > 0) {
+                    cout << "Average: " << sum / count << endl;
+                } else {
+                    cout << "No numbers found." << endl;
+                }
+            } else {
+                cout << "Unable to open file." << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Average: 15
+            </pre>
+        </div>
+        
+      
+        
+        <div class="program">
+            <h2>16. Student Information Management in Binary File</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <fstream>
+        #include <string>
+        using namespace std;
+        
+        class Student {
+        private:
+            int rollno;
+            char name[50];
+            float marks;
+            char mobileno[15];
+        public:
+            void set(int r, string n, float m, string mob) {
+                rollno = r;
+                strcpy(name, n.c_str());
+                marks = m;
+                strcpy(mobileno, mob.c_str());
+            }
+            void get() {
+                cout << "Roll No: " << rollno << ", Name: " << name 
+                     << ", Marks: " << marks << ", Mobile: " << mobileno << endl;
+            }
+            int getRollNo() { return rollno; }
+        };
+        
+        void insertRecord() {
+            ofstream file("students.dat", ios::binary | ios::app);
+            Student s;
+            int rollno;
+            string name, mobileno;
+            float marks;
+            cout << "Enter Roll No: "; cin >> rollno;
+            cout << "Enter Name: "; cin >> name;
+            cout << "Enter Marks: "; cin >> marks;
+            cout << "Enter Mobile No: "; cin >> mobileno;
+            s.set(rollno, name, marks, mobileno);
+            file.write((char*)&s, sizeof(Student));
+            file.close();
+            cout << "Record inserted." << endl;
+        }
+        
+        void deleteRecord(int rollno) {
+            ifstream inFile("students.dat", ios::binary);
+            ofstream outFile("temp.dat", ios::binary);
+            Student s;
+            bool found = false;
+            while (inFile.read((char*)&s, sizeof(Student))) {
+                if (s.getRollNo() != rollno) {
+                    outFile.write((char*)&s, sizeof(Student));
+                } else {
+                    found = true;
+                }
+            }
+            inFile.close();
+            outFile.close();
+            remove("students.dat");
+            rename("temp.dat", "students.dat");
+            cout << (found ? "Record deleted." : "Record not found.") << endl;
+        }
+        
+        void updateRecord(int rollno) {
+            fstream file("students.dat", ios::binary | ios::in | ios::out);
+            Student s;
+            bool found = false;
+            while (file.read((char*)&s, sizeof(Student))) {
+                if (s.getRollNo() == rollno) {
+                    string name, mobileno;
+                    float marks;
+                    cout << "Enter new Name: "; cin >> name;
+                    cout << "Enter new Marks: "; cin >> marks;
+                    cout << "Enter new Mobile No: "; cin >> mobileno;
+                    s.set(rollno, name, marks, mobileno);
+                    file.seekp(-sizeof(Student), ios::cur);
+                    file.write((char*)&s, sizeof(Student));
+                    found = true;
+                    break;
+                }
+            }
+            file.close();
+            cout << (found ? "Record updated." : "Record not found.") << endl;
+        }
+        
+        void searchRecord(int rollno) {
+            ifstream file("students.dat", ios::binary);
+            Student s;
+            bool found = false;
+            while (file.read((char*)&s, sizeof(Student))) {
+                if (s.getRollNo() == rollno) {
+                    s.get();
+                    found = true;
+                    break;
+                }
+            }
+            file.close();
+            if (!found) cout << "Record not found." << endl;
+        }
+        
+        void cloneFile() {
+            ifstream inFile("students.dat", ios::binary);
+            ofstream outFile("students_clone.dat", ios::binary);
+            char buffer[sizeof(Student)];
+            while (inFile.read(buffer, sizeof(Student))) {
+                outFile.write(buffer, sizeof(Student));
+            }
+            inFile.close();
+            outFile.close();
+            cout << "File cloned successfully." << endl;
+        }
+        
+        int main() {
+            int choice, rollno;
+            while (true) {
+                cout << "\n1. Insert Record\n2. Delete Record\n3. Update Record\n4. Search Record\n5. Clone File\n6. Exit\nEnter choice: ";
+                cin >> choice;
+                if (choice == 6) break;
+                if (choice >= 1 && choice <= 4) {
+                    cout << "Enter Roll No: ";
+                    cin >> rollno;
+                }
+                switch (choice) {
+                    case 1: insertRecord(); break;
+                    case 2: deleteRecord(rollno); break;
+                    case 3: updateRecord(rollno); break;
+                    case 4: searchRecord(rollno); break;
+                    case 5: cloneFile(); break;
+                    default: cout << "Invalid choice." << endl;
+                }
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        1. Insert Record
+        2. Delete Record
+        3. Update Record
+        4. Search Record
+        5. Clone File
+        6. Exit
+        Enter choice: 1
+        Enter Roll No: 1
+        Enter Name: John
+        Enter Marks: 85
+        Enter Mobile No: 1234567890
+        Record inserted.
+        
+        1. Insert Record
+        2. Delete Record
+        3. Update Record
+        4. Search Record
+        5. Clone File
+        6. Exit
+        Enter choice: 4
+        Enter Roll No: 1
+        Roll No: 1, Name: John, Marks: 85, Mobile: 1234567890
+        
+        1. Insert Record
+        2. Delete Record
+        3. Update Record
+        4. Search Record
+        5. Clone File
+        6. Exit
+        Enter choice: 6
+            </pre>
+        </div>
+</body>
+</html>

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Overloading</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+    <h1>Operator Overloading</h1>
+        
+        
+        <div class="program">
+            <h2>1. Complex Class with + Operator Overloading</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Complex {
+        private:
+            double real, imag;
+        public:
+            Complex(double r = 0, double i = 0) : real(r), imag(i) {}
+            Complex operator+(const Complex& other) {
+                return Complex(real + other.real, imag + other.imag);
+            }
+            void display() {
+                cout << real << " + " << imag << "i" << endl;
+            }
+        };
+        
+        int main() {
+            Complex c1(3.5, 2.5), c2(1.5, 4.5);
+            Complex c3 = c1 + c2;
+            cout << "Result: ";
+            c3.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Result: 5 + 7i
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>2. Fraction Class with + Operator Overloading</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Fraction {
+        private:
+            int num, denom;
+            int gcd(int a, int b) {
+                while (b != 0) {
+                    int temp = b;
+                    b = a % b;
+                    a = temp;
+                }
+                return a;
+            }
+        public:
+            Fraction(int n = 0, int d = 1) : num(n), denom(d) {}
+            Fraction operator+(const Fraction& other) {
+                int newNum = num * other.denom + other.num * denom;
+                int newDenom = denom * other.denom;
+                int divisor = gcd(newNum, newDenom);
+                return Fraction(newNum / divisor, newDenom / divisor);
+            }
+            void display() {
+                cout << num << "/" << denom << endl;
+            }
+        };
+        
+        int main() {
+            Fraction f1(1, 2), f2(3, 4);
+            Fraction f3 = f1 + f2;
+            cout << "Result: ";
+            f3.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Result: 5/4
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>3. Matrix Class with * Operator Overloading</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Matrix {
+        private:
+            int rows, cols;
+            int data[10][10];
+        public:
+            Matrix(int r, int c) : rows(r), cols(c) {
+                for (int i = 0; i < rows; i++)
+                    for (int j = 0; j < cols; j++)
+                        data[i][j] = 0;
+            }
+            void setValue(int i, int j, int val) {
+                data[i][j] = val;
+            }
+            Matrix operator*(const Matrix& other) {
+                Matrix result(rows, other.cols);
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j < other.cols; j++) {
+                        for (int k = 0; k < cols; k++) {
+                            result.data[i][j] += data[i][k] * other.data[k][j];
+                        }
+                    }
+                }
+                return result;
+            }
+            void display() {
+                for (int i = 0; i < rows; i++) {
+                    for (int j = 0; j < cols; j++) {
+                        cout << data[i][j] << " ";
+                    }
+                    cout << endl;
+                }
+            }
+        };
+        
+        int main() {
+            Matrix m1(2, 3), m2(3, 2);
+            m1.setValue(0, 0, 1); m1.setValue(0, 1, 2); m1.setValue(0, 2, 3);
+            m1.setValue(1, 0, 4); m1.setValue(1, 1, 5); m1.setValue(1, 2, 6);
+            m2.setValue(0, 0, 7); m2.setValue(0, 1, 8);
+            m2.setValue(1, 0, 9); m2.setValue(1, 1, 10);
+            m2.setValue(2, 0, 11); m2.setValue(2, 1, 12);
+            Matrix m3 = m1 * m2;
+            cout << "Result:" << endl;
+            m3.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Result:
+        58 64 
+        139 154 
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>4. String Class with + Operator Overloading</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <cstring>
+        using namespace std;
+        
+        class String {
+        private:
+            char* str;
+        public:
+            String(const char* s = "") {
+                str = new char[strlen(s) + 1];
+                strcpy(str, s);
+            }
+            ~String() {
+                delete[] str;
+            }
+            String operator+(const String& other) {
+                char* temp = new char[strlen(str) + strlen(other.str) + 1];
+                strcpy(temp, str);
+                strcat(temp, other.str);
+                String result(temp);
+                delete[] temp;
+                return result;
+            }
+            void display() {
+                cout << str << endl;
+            }
+        };
+        
+        int main() {
+            String s1("Hello"), s2(" World");
+            String s3 = s1 + s2;
+            cout << "Result: ";
+            s3.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Result: Hello World
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>5. Date Class with < Operator Overloading</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Date {
+        private:
+            int day, month, year;
+        public:
+            Date(int d = 1, int m = 1, int y = 2000) : day(d), month(m), year(y) {}
+            bool operator<(const Date& other) {
+                if (year != other.year) return year < other.year;
+                if (month != other.month) return month < other.month;
+                return day < other.day;
+            }
+            void display() {
+                cout << day << "/" << month << "/" << year << endl;
+            }
+        };
+        
+        int main() {
+            Date d1(25, 3, 2023), d2(15, 4, 2023);
+            if (d1 < d2) {
+                cout << "d1 is earlier than d2" << endl;
+            } else {
+                cout << "d1 is not earlier than d2" << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        d1 is earlier than d2
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>6. Money Class with + Operator Overloading</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Money {
+        private:
+            int dollars, cents;
+        public:
+            Money(int d = 0, int c = 0) : dollars(d), cents(c) {}
+            Money operator+(const Money& other) {
+                int totalCents = cents + other.cents + (dollars + other.dollars) * 100;
+                return Money(totalCents / 100, totalCents % 100);
+            }
+            void display() {
+                cout << "$" << dollars << "." << (cents < 10 ? "0" : "") << cents << endl;
+            }
+        };
+        
+        int main() {
+            Money m1(5, 75), m2(3, 50);
+            Money m3 = m1 + m2;
+            cout << "Result: ";
+            m3.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Result: $9.25
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>7. Rectangle Class with == Operator Overloading</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Rectangle {
+        private:
+            double width, height;
+        public:
+            Rectangle(double w = 0, double h = 0) : width(w), height(h) {}
+            bool operator==(const Rectangle& other) {
+                return width == other.width && height == other.height;
+            }
+            void display() {
+                cout << "Width: " << width << ", Height: " << height << endl;
+            }
+        };
+        
+        int main() {
+            Rectangle r1(5, 3), r2(5, 3);
+            if (r1 == r2) {
+                cout << "Rectangles are equal" << endl;
+            } else {
+                cout << "Rectangles are not equal" << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Rectangles are equal
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>8. Time Class with << Operator Overloading</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Time {
+        private:
+            int hours, minutes;
+        public:
+            Time(int h = 0, int m = 0) : hours(h), minutes(m) {}
+            friend ostream& operator<<(ostream& os, const Time& t) {
+                os << (t.hours < 10 ? "0" : "") << t.hours << ":"
+                   << (t.minutes < 10 ? "0" : "") << t.minutes;
+                return os;
+            }
+        };
+        
+        int main() {
+            Time t(9, 5);
+            cout << "Time: " << t << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Time: 09:05
+            </pre>
+        </div>
+        
+</body>
+</html>

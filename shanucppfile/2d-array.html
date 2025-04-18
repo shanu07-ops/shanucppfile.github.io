@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Arrays</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+    <h1>2D Arrays</h1>
+        <div class="program">
+            <h2>1. Enter and Print Matrix of Rows and Columns Entered by User</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int rows, cols;
+            cout << "Enter number of rows: ";
+            cin >> rows;
+            cout << "Enter number of columns: ";
+            cin >> cols;
+            int matrix[10][10];
+            cout << "Enter elements of matrix:" << endl;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    cin >> matrix[i][j];
+                }
+            }
+            cout << "Matrix:" << endl;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    cout << matrix[i][j] << " ";
+                }
+                cout << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Enter number of rows: 2
+        Enter number of columns: 3
+        Enter elements of matrix:
+        1 2 3
+        4 5 6
+        Matrix:
+        1 2 3 
+        4 5 6 
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>2. Program to Add Two Matrices</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix1[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+            int matrix2[3][3] = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+            int result[3][3];
+            int rows = 3, cols = 3;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    result[i][j] = matrix1[i][j] + matrix2[i][j];
+                }
+            }
+            cout << "Resultant Matrix:" << endl;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    cout << result[i][j] << " ";
+                }
+                cout << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Resultant Matrix:
+        10 10 10 
+        10 10 10 
+        10 10 10 
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>3. Program to Multiply Two Matrices</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix1[2][3] = {{1, 2, 3}, {4, 5, 6}};
+            int matrix2[3][2] = {{7, 8}, {9, 10}, {11, 12}};
+            int result[2][2] = {0};
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
+                    for (int k = 0; k < 3; k++) {
+                        result[i][j] += matrix1[i][k] * matrix2[k][j];
+                    }
+                }
+            }
+            cout << "Resultant Matrix:" << endl;
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
+                    cout << result[i][j] << " ";
+                }
+                cout << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Resultant Matrix:
+        58 64 
+        139 154 
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>4. Program to Subtract Two Matrices</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix1[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+            int matrix2[3][3] = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
+            int result[3][3];
+            int rows = 3, cols = 3;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    result[i][j] = matrix1[i][j] - matrix2[i][j];
+                }
+            }
+            cout << "Resultant Matrix:" << endl;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    cout << result[i][j] << " ";
+                }
+                cout << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Resultant Matrix:
+        -8 -6 -4 
+        -2 0 2 
+        4 6 8 
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>5. Determine Whether Two Matrices Are Equal</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix1[2][2] = {{1, 2}, {3, 4}};
+            int matrix2[2][2] = {{1, 2}, {3, 4}};
+            int rows = 2, cols = 2;
+            bool equal = true;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    if (matrix1[i][j] != matrix2[i][j]) {
+                        equal = false;
+                        break;
+                    }
+                }
+            }
+            cout << (equal ? "Matrices are equal" : "Matrices are not equal") << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Matrices are equal
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>6. Display the Lower Triangular Matrix</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+            int rows = 3, cols = 3;
+            cout << "Lower Triangular Matrix:" << endl;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    if (i >= j) {
+                        cout << matrix[i][j] << " ";
+                    } else {
+                        cout << "0 ";
+                    }
+                }
+                cout << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Lower Triangular Matrix:
+        1 0 0 
+        4 5 0 
+        7 8 9 
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>7. Display the Upper Triangular Matrix</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+            int rows = 3, cols = 3;
+            cout << "Upper Triangular Matrix:" << endl;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    if (i <= j) {
+                        cout << matrix[i][j] << " ";
+                    } else {
+                        cout << "0 ";
+                    }
+                }
+                cout << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Upper Triangular Matrix:
+        1 2 3 
+        0 5 6 
+        0 0 9 
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>8. Find the Frequency of Odd & Even Numbers in the Matrix</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+            int rows = 3, cols = 3;
+            int even = 0, odd = 0;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    if (matrix[i][j] % 2 == 0) even++;
+                    else odd++;
+                }
+            }
+            cout << "Even numbers: " << even << endl;
+            cout << "Odd numbers: " << odd << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Even numbers: 4
+        Odd numbers: 5
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>9. Find the Sum of Each Row and Each Column of a Matrix</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+            int rows = 3, cols = 3;
+            for (int i = 0; i < rows; i++) {
+                int rowSum = 0;
+                for (int j = 0; j < cols; j++) {
+                    rowSum += matrix[i][j];
+                }
+                cout << "Sum of row " << i + 1 << ": " << rowSum << endl;
+            }
+            for (int j = 0; j < cols; j++) {
+                int colSum = 0;
+                for (int i = 0; i < rows; i++) {
+                    colSum += matrix[i][j];
+                }
+                cout << "Sum of column " << j + 1 << ": " << colSum << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Sum of row 1: 6
+        Sum of row 2: 15
+        Sum of row 3: 24
+        Sum of column 1: 12
+        Sum of column 2: 15
+        Sum of column 3: 18
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>10. Determine Whether a Given Matrix is an Identity Matrix</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix[3][3] = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+            int rows = 3, cols = 3;
+            bool isIdentity = true;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    if (i == j && matrix[i][j] != 1) {
+                        isIdentity = false;
+                        break;
+                    }
+                    if (i != j && matrix[i][j] != 0) {
+                        isIdentity = false;
+                        break;
+                    }
+                }
+            }
+            cout << (isIdentity ? "Identity Matrix" : "Not an Identity Matrix") << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Identity Matrix
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>11. Transpose Matrix</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+            int transpose[3][3];
+            int rows = 3, cols = 3;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    transpose[j][i] = matrix[i][j];
+                }
+            }
+            cout << "Transposed Matrix:" << endl;
+            for (int i = 0; i < cols; i++) {
+                for (int j = 0; j < rows; j++) {
+                    cout << transpose[i][j] << " ";
+                }
+                cout << endl;
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Transposed Matrix:
+        1 4 7 
+        2 5 8 
+        3 6 9 
+            </pre>
+        </div>
+        
+       
+        
+        <div class="program">
+            <h2>12. Determine Whether a Given Matrix is a Sparse Matrix</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        int main() {
+            int matrix[3][3] = {{1, 0, 0}, {0, 0, 0}, {0, 0, 2}};
+            int rows = 3, cols = 3;
+            int zeroCount = 0;
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    if (matrix[i][j] == 0) {
+                        zeroCount++;
+                    }
+                }
+            }
+            int totalElements = rows * cols;
+            cout << (zeroCount > totalElements / 2 ? "Sparse Matrix" : "Not a Sparse Matrix") << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Sparse Matrix
+            </pre>
+        </div>
+</body>
+</html>

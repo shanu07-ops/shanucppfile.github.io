@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Conversion</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+    <h1>Data Conversion</h1>
+<div class="program">
+    <h2>1. Convert String to int</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "123";
+    int num = stoi(str);
+    cout << "Converted integer: " << num << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted integer: 123
+    </pre>
+</div>
+
+<div class="program">
+    <h2>2. Convert int to String</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int num = 456;
+    string str = to_string(num);
+    cout << "Converted string: " << str << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted string: 456
+    </pre>
+</div>
+
+<div class="program">
+    <h2>3. Convert String to long</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "123456";
+    long num = stol(str);
+    cout << "Converted long: " << num << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted long: 123456
+    </pre>
+</div>
+
+<div class="program">
+    <h2>4. Convert long to String</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    long num = 789123;
+    string str = to_string(num);
+    cout << "Converted string: " << str << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted string: 789123
+    </pre>
+</div>
+
+<div class="program">
+    <h2>5. Convert String to float</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "123.45";
+    float num = stof(str);
+    cout << "Converted float: " << num << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted float: 123.45
+    </pre>
+</div>
+
+<div class="program">
+    <h2>6. Convert float to String</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    float num = 67.89;
+    string str = to_string(num);
+    cout << "Converted string: " << str << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted string: 67.890000
+    </pre>
+</div>
+
+<div class="program">
+    <h2>7. Convert String to double</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str = "123.456";
+    double num = stod(str);
+    cout << "Converted double: " << num << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted double: 123.456
+    </pre>
+</div>
+
+<div class="program">
+    <h2>8. Convert double to String</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    double num = 789.123;
+    string str = to_string(num);
+    cout << "Converted string: " << str << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted string: 789.123000
+    </pre>
+</div>
+
+<div class="program">
+    <h2>9. Convert char to int</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch = '5';
+    int num = ch - '0';
+    cout << "Converted integer: " << num << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted integer: 5
+    </pre>
+</div>
+
+<div class="program">
+    <h2>10. Convert int to char</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 7;
+    char ch = num + '0';
+    cout << "Converted char: " << ch << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Converted char: 7
+    </pre>
+</div>
+
+<div class="program">
+    <h2>11. Convert Binary to Decimal</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int main() {
+    string binary = "1010";
+    int decimal = 0;
+    for (int i = 0; i < binary.length(); i++) {
+        if (binary[i] == '1') {
+            decimal += pow(2, binary.length() - 1 - i);
+        }
+    }
+    cout << "Decimal: " << decimal << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Decimal: 10
+    </pre>
+</div>
+
+<div class="program">
+    <h2>12. Convert Decimal to Binary</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int decimal = 13;
+    string binary = "";
+    while (decimal > 0) {
+        binary = to_string(decimal % 2) + binary;
+        decimal /= 2;
+    }
+    cout << "Binary: " << binary << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Binary: 1101
+    </pre>
+</div>
+
+<div class="program">
+    <h2>13. Convert Hex to Decimal</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string hex = "1A";
+    int decimal = stoi(hex, nullptr, 16);
+    cout << "Decimal: " << decimal << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Decimal: 26
+    </pre>
+</div>
+
+<div class="program">
+    <h2>14. Convert Decimal to Hex</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+int main() {
+    int decimal = 26;
+    stringstream ss;
+    ss << hex << decimal;
+    string hex = ss.str();
+    cout << "Hex: " << hex << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Hex: 1a
+    </pre>
+</div>
+
+<div class="program">
+    <h2>15. Convert Octal to Decimal</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string octal = "23";
+    int decimal = stoi(octal, nullptr, 8);
+    cout << "Decimal: " << decimal << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Decimal: 19
+    </pre>
+</div>
+
+<div class="program">
+    <h2>16. Convert Decimal to Octal</h2>
+    <h3>Source Code:</h3>
+    <pre><code>
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+int main() {
+    int decimal = 19;
+    stringstream ss;
+    ss << oct << decimal;
+    string octal = ss.str();
+    cout << "Octal: " << octal << endl;
+    return 0;
+}
+    </code></pre>
+    <h3>Output:</h3>
+    <pre>
+Octal: 23
+    </pre>
+</div>
+
+</body>
+</html>

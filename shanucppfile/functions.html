@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions-Practice</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+    <h1>Functions</h1>
+
+    <div class="program">
+        <h2>1. Find smallest number</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    int findSmallest(int a, int b, int c) {
+        if (a <= b && a <= c)
+            return a;
+        else if (b <= a && b <= c)
+            return b;
+        else
+            return c;
+    }
+    
+    int main() {
+        int num1 = 4, num2 = 1, num3 = 7;
+        int smallest = findSmallest(num1, num2, num3);
+        cout << "Smallest number is: " << smallest << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Smallest number is: 1
+        </pre>
+    </div>
+    
+    <div class="program">
+        <h2>2. Compute average of three numbers</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    float findAverage(int a, int b, int c) {
+        return (a + b + c) / 3.0;
+    }
+    
+    int main() {
+        int num1 = 1, num2 = 2, num3 = 3;
+        float avg = findAverage(num1, num2, num3);
+        cout << "Average is: " << avg << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Average is: 2
+        </pre>
+    </div>
+    
+    <div class="program">
+        <h2>3. Display middle character of string</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    void middleChar(string str) {
+        int len = str.length();
+        if (len % 2 == 0)
+            cout << "Middle characters are: " << str[len/2 - 1] << " and " << str[len/2] << endl;
+        else
+            cout << "Middle character is: " << str[len/2] << endl;
+    }
+    
+    int main() {
+        string str = "cat";
+        middleChar(str);
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Middle character is: a
+        </pre>
+    </div>
+    
+    <div class="program">
+        <h2>4. Find twin primes less than 100</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    bool isPrime(int n) {
+        if (n <= 1) return false;
+        for (int i = 2; i * i <= n; i++)
+            if (n % i == 0) return false;
+        return true;
+    }
+    
+    void findTwinPrimes() {
+        for (int i = 3; i < 100; i += 2)
+            if (isPrime(i) && isPrime(i + 2))
+                cout << "(" << i << ", " << i + 2 << ")" << endl;
+    }
+    
+    int main() {
+        findTwinPrimes();
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    (3, 5)
+    (5, 7)
+    (11, 13)
+    (17, 19)
+    (29, 31)
+    (41, 43)
+    (59, 61)
+    (71, 73)
+        </pre>
+    </div>
+    
+    <div class="program">
+        <h2>5. Count number of 2s in integer</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    int countTwos(int num) {
+        int count = 0;
+        while (num > 0) {
+            if (num % 10 == 2) count++;
+            num /= 10;
+        }
+        return count;
+    }
+    
+    int main() {
+        int num = 122;
+        int result = countTwos(num);
+        cout << "Number of 2s: " << result << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Number of 2s: 2
+        </pre>
+    </div>
+    
+    <div class="program">
+        <h2>6. Check if numbers are consecutive</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    using namespace std;
+    
+    bool areConsecutive(int a, int b, int c) {
+        if (b == a + 1 && c == b + 1) return true;
+        if (a == b + 1 && b == c + 1) return true;
+        return false;
+    }
+    
+    int main() {
+        int num1 = 1, num2 = 2, num3 = 3;
+        bool result = areConsecutive(num1, num2, num3);
+        cout << "Are consecutive: " << (result ? "true" : "false") << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    Are consecutive: true
+        </pre>
+    </div>
+    
+    <div class="program">
+        <h2>7. Check if all characters are vowels</h2>
+        <h3>Source Code:</h3>
+        <pre><code>
+    #include <iostream>
+    #include <string>
+    using namespace std;
+    
+    bool allVowels(string str) {
+        for (int i = 0; i < str.length(); i++) {
+            char ch = tolower(str[i]);
+            if (ch != 'a' && ch != 'e' && ch != 'i' && ch != 'o' && ch != 'u')
+                return false;
+        }
+        return true;
+    }
+    
+    int main() {
+        string str = "aei";
+        bool result = allVowels(str);
+        cout << "All vowels: " << (result ? "true" : "false") << endl;
+        return 0;
+    }
+        </code></pre>
+        <h3>Output:</h3>
+        <pre>
+    All vowels: true
+        </pre>
+    </div>
+</body>
+</html>

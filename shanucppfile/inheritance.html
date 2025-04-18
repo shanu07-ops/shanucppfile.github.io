@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritance</title>
+    <link rel="stylesheet" href="programmes.css" />
+  </head>
+  <body>
+    <h1>Inheritance</h1>
+
+    <div class="program">
+      <h2>1. Animal Class with Cat Derived Class</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; using namespace std;
+        class Animal {
+        public:
+        virtual void makeSound() {
+        cout << "Some generic animal sound" << endl;
+        }
+        };
+        
+        class Cat : public Animal {
+        public:
+        void makeSound() override {
+        cout << "Meow" << endl;
+        }
+        };
+        
+        int main() {
+        Cat animal;
+        animal.makeSound();
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre> Meow </pre>
+    </div>
+    <div class="program">
+      <h2>2. Vehicle Class with Car Derived Class</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; using namespace std;
+        class Vehicle {
+        public:
+        virtual void drive() {
+        cout << "Driving a vehicle" << endl;
+        }
+        };
+        
+        class Car : public Vehicle {
+        public:
+        void drive() override {
+        cout << "Driving a car" << endl;
+        }
+        };
+        
+        int main() {
+        Car vehicle;
+        vehicle.drive();
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre> Driving a car </pre>
+    </div>
+    <div class="program">
+      <h2>3. Shape Class with Rectangle Derived Class</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; using namespace std;
+        class Shape {
+        public:
+        virtual double getArea() {
+        return 0.0;
+        }
+        };
+        
+        class Rectangle : public Shape {
+        private:
+        double width, height;
+        public:
+        Rectangle(double w, double h) : width(w), height(h) {}
+        double getArea() override {
+        return width * height;
+        }
+        };
+        
+        int main() {
+        Rectangle shape(5, 3);
+        cout << "Area: " << shape.getArea() << endl;
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre> Area: 15 </pre>
+    </div>
+    <div class="program">
+      <h2>4. Employee Class with HRManager Derived Class</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; using namespace std;
+        class Employee {
+        public:
+        virtual void work() {
+        cout << "Employee working" << endl;
+        }
+        double getSalary() {
+        return 50000;
+        }
+        };
+        
+        class HRManager : public Employee {
+        public:
+        void work() override {
+        cout << "HR Manager managing HR tasks" << endl;
+        }
+        void addEmployee() {
+        cout << "Adding a new employee" << endl;
+        }
+        };
+        
+        int main() {
+        HRManager hr;
+        hr.work();
+        cout << "Salary: " << hr.getSalary() << endl;
+        hr.addEmployee();
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre>
+ HR Manager managing HR tasks Salary: 50000 Adding a new employee </pre
+      >
+    </div>
+    <div class="program">
+      <h2>5. BankAccount Class with SavingsAccount Derived Class</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; using namespace std;
+        class BankAccount {
+        protected:
+        double balance;
+        public:
+        BankAccount(double b) : balance(b) {}
+        void deposit(double amount) {
+        balance += amount;
+        }
+        virtual void withdraw(double amount) {
+        if (amount <= balance) balance -= amount;
+        }
+        double getBalance() {
+        return balance;
+        }
+        };
+        
+        class SavingsAccount : public BankAccount {
+        public:
+        SavingsAccount(double b) : BankAccount(b) {}
+        void withdraw(double amount) override {
+        if (balance - amount >= 100) {
+        balance -= amount;
+        cout << "Withdrawal successful" << endl;
+        } else {
+        cout << "Cannot withdraw, balance would fall below 100" << endl;
+        }
+        }
+        };
+        
+        int main() {
+        SavingsAccount acc(200);
+        acc.withdraw(50);
+        cout << "Balance: " << acc.getBalance() << endl;
+        acc.withdraw(150);
+        cout << "Balance: " << acc.getBalance() << endl;
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre>
+ Withdrawal successful Balance: 150 Cannot withdraw, balance would fall below 100 Balance: 150 </pre
+      >
+    </div>
+    <div class="program">
+      <h2>6. Animal Class with Cheetah Derived Class</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; using namespace std;
+        class Animal {
+        public:
+        virtual void move() {
+        cout << "Animal moving" << endl;
+        }
+        };
+        
+        class Cheetah : public Animal {
+        public:
+        void move() override {
+        cout << "Cheetah running" << endl;
+        }
+        };
+        
+        int main() {
+        Cheetah animal;
+        animal.move();
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre> Cheetah running </pre>
+    </div>
+    <div class="program">
+      <h2>7. Person Class with Employee Derived Class</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; #include &lt;string&gt; using namespace std;
+        class Person {
+        protected:
+        string firstName, lastName;
+        public:
+        Person(string f, string l) : firstName(f), lastName(l) {}
+        string getFirstName() {
+        return firstName;
+        }
+        virtual string getLastName() {
+        return lastName;
+        }
+        };
+        
+        class Employee : public Person {
+        private:
+        string employeeId, jobTitle;
+        public:
+        Employee(string f, string l, string id, string title)
+        : Person(f, l), employeeId(id), jobTitle(title) {}
+        string getLastName() override {
+        return lastName + " (" + jobTitle + ")";
+        }
+        string getEmployeeId() {
+        return employeeId;
+        }
+        };
+        
+        int main() {
+        Employee emp("John", "Doe", "E123", "Developer");
+        cout << "First Name: " << emp.getFirstName() << endl;
+        cout << "Last Name: " << emp.getLastName() << endl;
+        cout << "Employee ID: " << emp.getEmployeeId() << endl;
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre> First Name: John Last Name: Doe (Developer) Employee ID: E123 </pre>
+    </div>
+    <div class="program">
+      <h2>8. Shape Class with Circle Derived Class</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; using namespace std;
+        class Shape {
+        public:
+        virtual double getPerimeter() {
+        return 0.0;
+        }
+        virtual double getArea() {
+        return 0.0;
+        }
+        };
+        
+        class Circle : public Shape {
+        private:
+        double radius;
+        public:
+        Circle(double r) : radius(r) {}
+        double getPerimeter() override {
+        return 2 * 3.14159 * radius;
+        }
+        double getArea() override {
+        return 3.14159 * radius * radius;
+        }
+        };
+        
+        int main() {
+        Circle shape(5);
+        cout << "Perimeter: " << shape.getPerimeter() << endl;
+        cout << "Area: " << shape.getArea() << endl;
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre> Perimeter: 31.4159 Area: 78.5397 </pre>
+    </div>
+    <div class="program">
+      <h2>9. Vehicle Class Hierarchy</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; #include &lt;string&gt; using namespace std;
+        class Vehicle {
+        protected:
+        string make, model, fuelType;
+        int year;
+        public:
+        Vehicle(string m, string mdl, int y, string ft)
+        : make(m), model(mdl), year(y), fuelType(ft) {}
+        virtual double fuelEfficiency() { return 0.0; }
+        virtual double distanceTraveled(double fuel) { return 0.0; }
+        virtual double maxSpeed() { return 0.0; }
+        void display() {
+        cout << "Make: " << make << ", Model: " << model << ", Year: " << year << ", Fuel: " << fuelType << endl;
+        }
+        };
+        
+        class Truck : public Vehicle {
+        public:
+        Truck(string m, string mdl, int y, string ft) : Vehicle(m, mdl, y, ft) {}
+        double fuelEfficiency() override { return 10.5; }
+        double distanceTraveled(double fuel) override { return fuel * fuelEfficiency(); }
+        double maxSpeed() override { return 80.0; }
+        };
+        
+        class Car : public Vehicle {
+        public:
+        Car(string m, string mdl, int y, string ft) : Vehicle(m, mdl, y, ft) {}
+        double fuelEfficiency() override { return 25.0; }
+        double distanceTraveled(double fuel) override { return fuel * fuelEfficiency(); }
+        double maxSpeed() override { return 120.0; }
+        };
+        
+        class Motorcycle : public Vehicle {
+        public:
+        Motorcycle(string m, string mdl, int y, string ft) : Vehicle(m, mdl, y, ft) {}
+        double fuelEfficiency() override { return 40.0; }
+        double distanceTraveled(double fuel) override { return fuel * fuelEfficiency(); }
+        double maxSpeed() override { return 150.0; }
+        };
+        
+        int main() {
+        Truck truck("Ford", "F150", 2020, "Diesel");
+        Car car("Toyota", "Camry", 2021, "Gasoline");
+        Motorcycle bike("Honda", "CBR", 2022, "Gasoline");
+        
+        truck.display();
+        cout << "Fuel Efficiency: " << truck.fuelEfficiency() << " mpg" << endl;
+        cout << "Distance (10 gal): " << truck.distanceTraveled(10) << " miles" << endl;
+        cout << "Max Speed: " << truck.maxSpeed() << " mph" << endl;
+        
+        car.display();
+        cout << "Fuel Efficiency: " << car.fuelEfficiency() << " mpg" << endl;
+        cout << "Distance (10 gal): " << car.distanceTraveled(10) << " miles" << endl;
+        cout << "Max Speed: " << car.maxSpeed() << " mph" << endl;
+        
+        bike.display();
+        cout << "Fuel Efficiency: " << bike.fuelEfficiency() << " mpg" << endl;
+        cout << "Distance (10 gal): " << bike.distanceTraveled(10) << " miles" << endl;
+        cout << "Max Speed: " << bike.maxSpeed() << " mph" << endl;
+        
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre>
+ Make: Ford, Model: F150, Year: 2020, Fuel: Diesel Fuel Efficiency: 10.5 mpg Distance (10 gal): 105 miles Max Speed: 80 mph Make: Toyota, Model: Camry, Year: 2021, Fuel: Gasoline Fuel Efficiency: 25 mpg Distance (10 gal): 250 miles Max Speed: 120 mph Make: Honda, Model: CBR, Year: 2022, Fuel: Gasoline Fuel Efficiency: 40 mpg Distance (10 gal): 400 miles Max Speed: 150 mph </pre
+      >
+    </div>
+    <div class="program">
+      <h2>10. Employee Class Hierarchy</h2>
+      <h3>Source Code:</h3>
+      <pre><code> #include &lt;iostream&gt; #include &lt;string&gt; using namespace std;
+        class Employee {
+        protected:
+        string name, address, jobTitle;
+        double salary;
+        public:
+        Employee(string n, string a, double s, string jt)
+        : name(n), address(a), salary(s), jobTitle(jt) {}
+        virtual double calculateBonus() { return salary * 0.05; }
+        virtual void generatePerformanceReport() {
+        cout << "Generic performance report for " << name << endl;
+        }
+        virtual void manageProjects() {
+        cout << name << " is managing generic projects" << endl;
+        }
+        void display() {
+        cout << "Name: " << name << ", Address: " << address << ", Salary: " << salary
+        << ", Job Title: " << jobTitle << endl;
+        }
+        };
+        
+        class Manager : public Employee {
+        public:
+        Manager(string n, string a, double s, string jt) : Employee(n, a, s, jt) {}
+        double calculateBonus() override { return salary * 0.15; }
+        void generatePerformanceReport() override {
+        cout << "Manager performance report for " << name << endl;
+        }
+        void manageProjects() override {
+        cout << name << " is managing team projects" << endl;
+        }
+        };
+        
+        class Developer : public Employee {
+        public:
+        Developer(string n, string a, double s, string jt) : Employee(n, a, s, jt) {}
+        double calculateBonus() override { return salary * 0.10; }
+        void generatePerformanceReport() override {
+        cout << "Developer performance report for " << name << endl;
+        }
+        void manageProjects() override {
+        cout << name << " is managing development projects" << endl;
+        }
+        };
+        
+        class Programmer : public Employee {
+        public:
+        Programmer(string n, string a, double s, string jt) : Employee(n, a, s, jt) {}
+        double calculateBonus() override { return salary * 0.08; }
+        void generatePerformanceReport() override {
+        cout << "Programmer performance report for " << name << endl;
+        }
+        void manageProjects() override {
+        cout << name << " is managing coding projects" << endl;
+        }
+        };
+        
+        int main() {
+        Manager mgr("Alice", "123 St", 80000, "Manager");
+        Developer dev("Bob", "456 St", 60000, "Developer");
+        Programmer prog("Charlie", "789 St", 50000, "Programmer");
+        
+        mgr.display();
+        cout << "Bonus: " << mgr.calculateBonus() << endl;
+        mgr.generatePerformanceReport();
+        mgr.manageProjects();
+        
+        dev.display();
+        cout << "Bonus: " << dev.calculateBonus() << endl;
+        dev.generatePerformanceReport();
+        dev.manageProjects();
+        
+        prog.display();
+        cout << "Bonus: " << prog.calculateBonus() << endl;
+        prog.generatePerformanceReport();
+        prog.manageProjects();
+        
+        return 0;
+        }
+        </code></pre>
+
+      <h3>Output:</h3>
+      <pre>
+ Name: Alice, Address: 123 St, Salary: 80000, Job Title: Manager Bonus: 12000 Manager performance report for Alice Alice is managing team projects Name: Bob, Address: 456 St, Salary: 60000, Job Title: Developer Bonus: 6000 Developer performance report for Bob Bob is managing development projects Name: Charlie, Address: 789 St, Salary: 50000, Job Title: Programmer Bonus: 4000 Programmer performance report for Charlie Charlie is managing coding projects </pre
+      >
+    </div>
+  </body>
+</html>

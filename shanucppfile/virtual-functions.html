@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Functions</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+    <h1>Virtual Functions</h1>
+
+        <div class="program">
+            <h2>1 & 2. Animal Class with Lion and Tiger Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Animal {
+        public:
+            virtual void sound() = 0;
+            virtual ~Animal() {}
+        };
+        
+        class Lion : public Animal {
+        public:
+            void sound() override {
+                cout << "Lion roars" << endl;
+            }
+        };
+        
+        class Tiger : public Animal {
+        public:
+            void sound() override {
+                cout << "Tiger growls" << endl;
+            }
+        };
+        
+        int main() {
+            Animal* lion = new Lion();
+            Animal* tiger = new Tiger();
+            lion->sound();
+            tiger->sound();
+            delete lion;
+            delete tiger;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Lion roars
+        Tiger growls
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>3. Shape Class with Circle and Triangle Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Shape {
+        public:
+            virtual double calculateArea() = 0;
+            virtual double calculatePerimeter() = 0;
+            virtual ~Shape() {}
+        };
+        
+        class Circle : public Shape {
+        private:
+            double radius;
+        public:
+            Circle(double r) : radius(r) {}
+            double calculateArea() override {
+                return 3.14159 * radius * radius;
+            }
+            double calculatePerimeter() override {
+                return 2 * 3.14159 * radius;
+            }
+        };
+        
+        class Triangle : public Shape {
+        private:
+            double a, b, c;
+        public:
+            Triangle(double x, double y, double z) : a(x), b(y), c(z) {}
+            double calculateArea() override {
+                double s = (a + b + c) / 2;
+                return sqrt(s * (s - a) * (s - b) * (s - c));
+            }
+            double calculatePerimeter() override {
+                return a + b + c;
+            }
+        };
+        
+        int main() {
+            Shape* circle = new Circle(5);
+            Shape* triangle = new Triangle(3, 4, 5);
+            cout << "Circle Area: " << circle->calculateArea() << endl;
+            cout << "Circle Perimeter: " << circle->calculatePerimeter() << endl;
+            cout << "Triangle Area: " << triangle->calculateArea() << endl;
+            cout << "Triangle Perimeter: " << triangle->calculatePerimeter() << endl;
+            delete circle;
+            delete triangle;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Circle Area: 78.5397
+        Circle Perimeter: 31.4159
+        Triangle Area: 6
+        Triangle Perimeter: 12
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>4. BankAccount Class with SavingsAccount and CurrentAccount Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class BankAccount {
+        protected:
+            double balance;
+        public:
+            BankAccount(double b = 0) : balance(b) {}
+            virtual void deposit(double amount) = 0;
+            virtual void withdraw(double amount) = 0;
+            virtual ~BankAccount() {}
+            double getBalance() { return balance; }
+        };
+        
+        class SavingsAccount : public BankAccount {
+        public:
+            SavingsAccount(double b) : BankAccount(b) {}
+            void deposit(double amount) override {
+                balance += amount;
+            }
+            void withdraw(double amount) override {
+                if (balance - amount >= 100) balance -= amount;
+                else cout << "Insufficient balance for withdrawal" << endl;
+            }
+        };
+        
+        class CurrentAccount : public BankAccount {
+        public:
+            CurrentAccount(double b) : BankAccount(b) {}
+            void deposit(double amount) override {
+                balance += amount;
+            }
+            void withdraw(double amount) override {
+                balance -= amount;
+            }
+        };
+        
+        int main() {
+            BankAccount* savings = new SavingsAccount(200);
+            BankAccount* current = new CurrentAccount(200);
+            savings->withdraw(150);
+            current->withdraw(150);
+            cout << "Savings Balance: " << savings->getBalance() << endl;
+            cout << "Current Balance: " << current->getBalance() << endl;
+            delete savings;
+            delete current;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Insufficient balance for withdrawal
+        Savings Balance: 200
+        Current Balance: 50
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>5. Animal Class with Lion, Tiger, and Deer Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Animal {
+        public:
+            virtual void eat() = 0;
+            virtual void sleep() = 0;
+            virtual ~Animal() {}
+        };
+        
+        class Lion : public Animal {
+        public:
+            void eat() override {
+                cout << "Lion eats meat" << endl;
+            }
+            void sleep() override {
+                cout << "Lion sleeps in den" << endl;
+            }
+        };
+        
+        class Tiger : public Animal {
+        public:
+            void eat() override {
+                cout << "Tiger eats flesh" << endl;
+            }
+            void sleep() override {
+                cout << "Tiger sleeps in cave" << endl;
+            }
+        };
+        
+        class Deer : public Animal {
+        public:
+            void eat() override {
+                cout << "Deer eats grass" << endl;
+            }
+            void sleep() override {
+                cout << "Deer sleeps in open" << endl;
+            }
+        };
+        
+        int main() {
+            Animal* lion = new Lion();
+            Animal* tiger = new Tiger();
+            Animal* deer = new Deer();
+            lion->eat(); lion->sleep();
+            tiger->eat(); tiger->sleep();
+            deer->eat(); deer->sleep();
+            delete lion; delete tiger; delete deer;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Lion eats meat
+        Lion sleeps in den
+        Tiger eats flesh
+        Tiger sleeps in cave
+        Deer eats grass
+        Deer sleeps in open
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>6. Employee Class with Manager and Programmer Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Employee {
+        protected:
+            string name;
+        public:
+            Employee(string n) : name(n) {}
+            virtual double calculateSalary() = 0;
+            virtual void displayInfo() = 0;
+            virtual ~Employee() {}
+        };
+        
+        class Manager : public Employee {
+        public:
+            Manager(string n) : Employee(n) {}
+            double calculateSalary() override {
+                return 80000;
+            }
+            void displayInfo() override {
+                cout << "Name: " << name << ", Role: Manager, Salary: " << calculateSalary() << endl;
+            }
+        };
+        
+        class Programmer : public Employee {
+        public:
+            Programmer(string n) : Employee(n) {}
+            double calculateSalary() override {
+                return 60000;
+            }
+            void displayInfo() override {
+                cout << "Name: " << name << ", Role: Programmer, Salary: " << calculateSalary() << endl;
+            }
+        };
+        
+        int main() {
+            Employee* mgr = new Manager("Alice");
+            Employee* prog = new Programmer("Bob");
+            mgr->displayInfo();
+            prog->displayInfo();
+            delete mgr;
+            delete prog;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Name: Alice, Role: Manager, Salary: 80000
+        Name: Bob, Role: Programmer, Salary: 60000
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>7. Shape3D Class with Sphere and Cube Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Shape3D {
+        public:
+            virtual double calculateVolume() = 0;
+            virtual double calculateSurfaceArea() = 0;
+            virtual ~Shape3D() {}
+        };
+        
+        class Sphere : public Shape3D {
+        private:
+            double radius;
+        public:
+            Sphere(double r) : radius(r) {}
+            double calculateVolume() override {
+                return (4.0 / 3) * 3.14159 * radius * radius * radius;
+            }
+            double calculateSurfaceArea() override {
+                return 4 * 3.14159 * radius * radius;
+            }
+        };
+        
+        class Cube : public Shape3D {
+        private:
+            double side;
+        public:
+            Cube(double s) : side(s) {}
+            double calculateVolume() override {
+                return side * side * side;
+            }
+            double calculateSurfaceArea() override {
+                return 6 * side * side;
+            }
+        };
+        
+        int main() {
+            Shape3D* sphere = new Sphere(3);
+            Shape3D* cube = new Cube(4);
+            cout << "Sphere Volume: " << sphere->calculateVolume() << endl;
+            cout << "Sphere Surface Area: " << sphere->calculateSurfaceArea() << endl;
+            cout << "Cube Volume: " << cube->calculateVolume() << endl;
+            cout << "Cube Surface Area: " << cube->calculateSurfaceArea() << endl;
+            delete sphere;
+            delete cube;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Sphere Volume: 113.097
+        Sphere Surface Area: 113.097
+        Cube Volume: 64
+        Cube Surface Area: 96
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>8. Vehicle Class with Car and Motorcycle Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Vehicle {
+        public:
+            virtual void startEngine() = 0;
+            virtual void stopEngine() = 0;
+            virtual ~Vehicle() {}
+        };
+        
+        class Car : public Vehicle {
+        public:
+            void startEngine() override {
+                cout << "Car engine started" << endl;
+            }
+            void stopEngine() override {
+                cout << "Car engine stopped" << endl;
+            }
+        };
+        
+        class Motorcycle : public Vehicle {
+        public:
+            void startEngine() override {
+                cout << "Motorcycle engine started" << endl;
+            }
+            void stopEngine() override {
+                cout << "Motorcycle engine stopped" << endl;
+            }
+        };
+        
+        int main() {
+            Vehicle* car = new Car();
+            Vehicle* bike = new Motorcycle();
+            car->startEngine(); car->stopEngine();
+            bike->startEngine(); bike->stopEngine();
+            delete car;
+            delete bike;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Car engine started
+        Car engine stopped
+        Motorcycle engine started
+        Motorcycle engine stopped
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>9. Person Class with Athlete and LazyPerson Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Person {
+        public:
+            virtual void eat() = 0;
+            virtual void exercise() = 0;
+            virtual ~Person() {}
+        };
+        
+        class Athlete : public Person {
+        public:
+            void eat() override {
+                cout << "Athlete eats a balanced diet" << endl;
+            }
+            void exercise() override {
+                cout << "Athlete trains intensely" << endl;
+            }
+        };
+        
+        class LazyPerson : public Person {
+        public:
+            void eat() override {
+                cout << "Lazy person eats junk food" << endl;
+            }
+            void exercise() override {
+                cout << "Lazy person avoids exercise" << endl;
+            }
+        };
+        
+        int main() {
+            Person* athlete = new Athlete();
+            Person* lazy = new LazyPerson();
+            athlete->eat(); athlete->exercise();
+            lazy->eat(); lazy->exercise();
+            delete athlete;
+            delete lazy;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Athlete eats a balanced diet
+        Athlete trains intensely
+        Lazy person eats junk food
+        Lazy person avoids exercise
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>10. Instrument Class with Glockenspiel and Violin Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Instrument {
+        public:
+            virtual void play() = 0;
+            virtual void tune() = 0;
+            virtual ~Instrument() {}
+        };
+        
+        class Glockenspiel : public Instrument {
+        public:
+            void play() override {
+                cout << "Glockenspiel plays a chime" << endl;
+            }
+            void tune() override {
+                cout << "Glockenspiel is tuned with a mallet" << endl;
+            }
+        };
+        
+        class Violin : public Instrument {
+        public:
+            void play() override {
+                cout << "Violin plays a melody" << endl;
+            }
+            void tune() override {
+                cout << "Violin is tuned with pegs" << endl;
+            }
+        };
+        
+        int main() {
+            Instrument* glock = new Glockenspiel();
+            Instrument* violin = new Violin();
+            glock->play(); glock->tune();
+            violin->play(); violin->tune();
+            delete glock;
+            delete violin;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Glockenspiel plays a chime
+        Glockenspiel is tuned with a mallet
+        Violin plays a melody
+        Violin is tuned with pegs
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>11. Shape2D Class with Rectangle and Circle Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Shape2D {
+        public:
+            virtual void draw() = 0;
+            virtual void resize(double factor) = 0;
+            virtual ~Shape2D() {}
+        };
+        
+        class Rectangle : public Shape2D {
+        private:
+            double width, height;
+        public:
+            Rectangle(double w, double h) : width(w), height(h) {}
+            void draw() override {
+                cout << "Drawing Rectangle with width " << width << " and height " << height << endl;
+            }
+            void resize(double factor) override {
+                width *= factor;
+                height *= factor;
+                cout << "Resized Rectangle to width " << width << " and height " << height << endl;
+            }
+        };
+        
+        class Circle : public Shape2D {
+        private:
+            double radius;
+        public:
+            Circle(double r) : radius(r) {}
+            void draw() override {
+                cout << "Drawing Circle with radius " << radius << endl;
+            }
+            void resize(double factor) override {
+                radius *= factor;
+                cout << "Resized Circle to radius " << radius << endl;
+            }
+        };
+        
+        int main() {
+            Shape2D* rect = new Rectangle(5, 3);
+            Shape2D* circle = new Circle(4);
+            rect->draw(); rect->resize(2);
+            circle->draw(); circle->resize(1.5);
+            delete rect;
+            delete circle;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Drawing Rectangle with width 5 and height 3
+        Resized Rectangle to width 10 and height 6
+        Drawing Circle with radius 4
+        Resized Circle to radius 6
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>12. GeometricShape Class with Triangle and Square Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class GeometricShape {
+        public:
+            virtual double area() = 0;
+            virtual double perimeter() = 0;
+            virtual ~GeometricShape() {}
+        };
+        
+        class Triangle : public GeometricShape {
+        private:
+            double a, b, c;
+        public:
+            Triangle(double x, double y, double z) : a(x), b(y), c(z) {}
+            double area() override {
+                double s = (a + b + c) / 2;
+                return sqrt(s * (s - a) * (s - b) * (s - c));
+            }
+            double perimeter() override {
+                return a + b + c;
+            }
+        };
+        
+        class Square : public GeometricShape {
+        private:
+            double side;
+        public:
+            Square(double s) : side(s) {}
+            double area() override {
+                return side * side;
+            }
+            double perimeter() override {
+                return 4 * side;
+            }
+        };
+        
+        int main() {
+            GeometricShape* triangle = new Triangle(3, 4, 5);
+            GeometricShape* square = new Square(4);
+            cout << "Triangle Area: " << triangle->area() << endl;
+            cout << "Triangle Perimeter: " << triangle->perimeter() << endl;
+            cout << "Square Area: " << square->area() << endl;
+            cout << "Square Perimeter: " << square->perimeter() << endl;
+            delete triangle;
+            delete square;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Triangle Area: 6
+        Triangle Perimeter: 12
+        Square Area: 16
+        Square Perimeter: 16
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>13. Bird Class with Eagle and Hawk Derived Classes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Bird {
+        public:
+            virtual void fly() = 0;
+            virtual void makeSound() = 0;
+            virtual ~Bird() {}
+        };
+        
+        class Eagle : public Bird {
+        public:
+            void fly() override {
+                cout << "Eagle soars high" << endl;
+            }
+            void makeSound() override {
+                cout << "Eagle screeches" << endl;
+            }
+        };
+        
+        class Hawk : public Bird {
+        public:
+            void fly() override {
+                cout << "Hawk glides swiftly" << endl;
+            }
+            void makeSound() override {
+                cout << "Hawk cries" << endl;
+            }
+        };
+        
+        int main() {
+            Bird* eagle = new Eagle();
+            Bird* hawk = new Hawk();
+            eagle->fly(); eagle->makeSound();
+            hawk->fly(); hawk->makeSound();
+            delete eagle;
+            delete hawk;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Eagle soars high
+        Eagle screeches
+        Hawk glides swiftly
+        Hawk cries
+            </pre>
+        </div>
+        
+</body>
+</html>

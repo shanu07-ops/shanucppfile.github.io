@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOps Practice</title>
+    <link rel="stylesheet" href="programmes.css">
+</head>
+<body>
+    <h1>Object Oriented Programming</h1>
+        <div class="program">
+            <h2>1. Create a Person Class with Name and Age Attributes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Person {
+        private:
+            string name;
+            int age;
+        public:
+            Person(string n, int a) {
+                name = n;
+                age = a;
+            }
+            void display() {
+                cout << "Name: " << name << ", Age: " << age << endl;
+            }
+        };
+        
+        int main() {
+            Person person1("Alice", 25);
+            Person person2("Bob", 30);
+            person1.display();
+            person2.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Name: Alice, Age: 25
+        Name: Bob, Age: 30
+            </pre>
+        </div>
+        
+        
+        <div class="program">
+            <h2>2. Create a Dog Class with Name and Breed Attributes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Dog {
+        private:
+            string name;
+            string breed;
+        public:
+            Dog(string n, string b) {
+                name = n;
+                breed = b;
+            }
+            void setName(string n) {
+                name = n;
+            }
+            void setBreed(string b) {
+                breed = b;
+            }
+            void display() {
+                cout << "Name: " << name << ", Breed: " << breed << endl;
+            }
+        };
+        
+        int main() {
+            Dog dog1("Max", "Labrador");
+            Dog dog2("Buddy", "Pug");
+            cout << "Initial values:" << endl;
+            dog1.display();
+            dog2.display();
+            dog1.setName("Rex");
+            dog1.setBreed("German Shepherd");
+            dog2.setName("Charlie");
+            dog2.setBreed("Beagle");
+            cout << "\nUpdated values:" << endl;
+            dog1.display();
+            dog2.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Initial values:
+        Name: Max, Breed: Labrador
+        Name: Buddy, Breed: Pug
+        
+        Updated values:
+        Name: Rex, Breed: German Shepherd
+        Name: Charlie, Breed: Beagle
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>3. Create a Rectangle Class with Width and Height Attributes</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Rectangle {
+        private:
+            double width;
+            double height;
+        public:
+            Rectangle(double w, double h) {
+                width = w;
+                height = h;
+            }
+            double calculateArea() {
+                return width * height;
+            }
+            double calculatePerimeter() {
+                return 2 * (width + height);
+            }
+        };
+        
+        int main() {
+            Rectangle rect(5.0, 3.0);
+            cout << "Area of Rectangle: " << rect.calculateArea() << endl;
+            cout << "Perimeter of Rectangle: " << rect.calculatePerimeter() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Area of Rectangle: 15
+        Perimeter of Rectangle: 16
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>4. Create a Circle Class with Radius Attribute</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Circle {
+        private:
+            double radius;
+        public:
+            Circle(double r) {
+                radius = r;
+            }
+            void setRadius(double r) {
+                radius = r;
+            }
+            double getRadius() {
+                return radius;
+            }
+            double calculateArea() {
+                return 3.14159 * radius * radius;
+            }
+            double calculateCircumference() {
+                return 2 * 3.14159 * radius;
+            }
+        };
+        
+        int main() {
+            Circle circle(4.0);
+            cout << "Initial Radius: " << circle.getRadius() << endl;
+            cout << "Area: " << circle.calculateArea() << endl;
+            cout << "Circumference: " << circle.calculateCircumference() << endl;
+            circle.setRadius(5.0);
+            cout << "\nUpdated Radius: " << circle.getRadius() << endl;
+            cout << "Area: " << circle.calculateArea() << endl;
+            cout << "Circumference: " << circle.calculateCircumference() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Initial Radius: 4
+        Area: 50.2654
+        Circumference: 25.1327
+        
+        Updated Radius: 5
+        Area: 78.5397
+        Circumference: 31.4159
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>6. Create an Employee Class with Salary Methods</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Employee {
+        private:
+            string name;
+            string jobTitle;
+            double salary;
+        public:
+            Employee(string n, string j, double s) {
+                name = n;
+                jobTitle = j;
+                salary = s;
+            }
+            void updateSalary(double newSalary) {
+                salary = newSalary;
+            }
+            double calculateMonthlySalary() {
+                return salary / 12;
+            }
+            void display() {
+                cout << "Name: " << name << ", Job Title: " << jobTitle << ", Salary: " << salary << endl;
+            }
+        };
+        
+        int main() {
+            Employee emp("John", "Engineer", 60000);
+            emp.display();
+            cout << "Monthly Salary: " << emp.calculateMonthlySalary() << endl;
+            emp.updateSalary(72000);
+            cout << "\nAfter update:" << endl;
+            emp.display();
+            cout << "Monthly Salary: " << emp.calculateMonthlySalary() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Name: John, Job Title: Engineer, Salary: 60000
+        Monthly Salary: 5000
+        
+        After update:
+        Name: John, Job Title: Engineer, Salary: 72000
+        Monthly Salary: 6000
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>7. Create a Bank Class with Account Management</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class Account {
+        private:
+            string customerName;
+            double balance;
+        public:
+            Account(string n, double b) {
+                customerName = n;
+                balance = b;
+            }
+            void deposit(double amount) {
+                balance += amount;
+            }
+            void withdraw(double amount) {
+                if (amount <= balance) balance -= amount;
+            }
+            void display() {
+                cout << "Customer: " << customerName << ", Balance: " << balance << endl;
+            }
+            string getName() {
+                return customerName;
+            }
+        };
+        
+        class Bank {
+        private:
+            vector<Account> accounts;
+        public:
+            void addAccount(Account acc) {
+                accounts.push_back(acc);
+            }
+            void removeAccount(string name) {
+                for (int i = 0; i < accounts.size(); i++) {
+                    if (accounts[i].getName() == name) {
+                        accounts.erase(accounts.begin() + i);
+                        return;
+                    }
+                }
+            }
+            void displayAccounts() {
+                for (Account acc : accounts) {
+                    acc.display();
+                }
+            }
+        };
+        
+        int main() {
+            Bank bank;
+            Account acc1("Alice", 1000);
+            Account acc2("Bob", 2000);
+            bank.addAccount(acc1);
+            bank.addAccount(acc2);
+            cout << "Initial accounts:" << endl;
+            bank.displayAccounts();
+            acc1.deposit(500);
+            acc2.withdraw(1000);
+            cout << "\nAfter transactions:" << endl;
+            bank.displayAccounts();
+            bank.removeAccount("Alice");
+            cout << "\nAfter removing Alice:" << endl;
+            bank.displayAccounts();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Initial accounts:
+        Customer: Alice, Balance: 1000
+        Customer: Bob, Balance: 2000
+        
+        After transactions:
+        Customer: Alice, Balance: 1500
+        Customer: Bob, Balance: 1000
+        
+        After removing Alice:
+        Customer: Bob, Balance: 1000
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>8. Create a TrafficLight Class</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class TrafficLight {
+        private:
+            string color;
+            int duration;
+        public:
+            TrafficLight(string c, int d) {
+                color = c;
+                duration = d;
+            }
+            void changeColor(string newColor) {
+                color = newColor;
+            }
+            bool isRed() {
+                return color == "red";
+            }
+            bool isGreen() {
+                return color == "green";
+            }
+            void display() {
+                cout << "Color: " << color << ", Duration: " << duration << " seconds" << endl;
+            }
+        };
+        
+        int main() {
+            TrafficLight light("red", 30);
+            light.display();
+            cout << "Is Red? " << (light.isRed() ? "Yes" : "No") << endl;
+            light.changeColor("green");
+            light.display();
+            cout << "Is Green? " << (light.isGreen() ? "Yes" : "No") << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Color: red, Duration: 30 seconds
+        Is Red? Yes
+        Color: green, Duration: 30 seconds
+        Is Green? Yes
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>9. Create an Employee Class with Years of Service</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Employee {
+        private:
+            string name;
+            double salary;
+            int hireYear;
+        public:
+            Employee(string n, double s, int y) {
+                name = n;
+                salary = s;
+                hireYear = y;
+            }
+            int calculateYearsOfService() {
+                return 2025 - hireYear;
+            }
+            void display() {
+                cout << "Name: " << name << ", Salary: " << salary << ", Hire Year: " << hireYear << endl;
+            }
+        };
+        
+        int main() {
+            Employee emp("Alice", 50000, 2020);
+            emp.display();
+            cout << "Years of Service: " << emp.calculateYearsOfService() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Name: Alice, Salary: 50000, Hire Year: 2020
+        Years of Service: 5
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>10. Create a Student Class with Courses</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class Student {
+        private:
+            string name;
+            int grade;
+            vector<string> courses;
+        public:
+            Student(string n, int g) {
+                name = n;
+                grade = g;
+            }
+            void addCourse(string course) {
+                courses.push_back(course);
+            }
+            void removeCourse(string course) {
+                for (int i = 0; i < courses.size(); i++) {
+                    if (courses[i] == course) {
+                        courses.erase(courses.begin() + i);
+                        return;
+                    }
+                }
+            }
+            void display() {
+                cout << "Name: " << name << ", Grade: " << grade << ", Courses: ";
+                for (string c : courses) {
+                    cout << c << " ";
+                }
+                cout << endl;
+            }
+        };
+        
+        int main() {
+            Student stu("Bob", 10);
+            stu.addCourse("Math");
+            stu.addCourse("Science");
+            stu.display();
+            stu.removeCourse("Math");
+            cout << "After removing Math:" << endl;
+            stu.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Name: Bob, Grade: 10, Courses: Math Science 
+        After removing Math:
+        Name: Bob, Grade: 10, Courses: Science 
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>11. Create a Library Class</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class Book {
+        private:
+            string title;
+        public:
+            Book(string t) {
+                title = t;
+            }
+            string getTitle() {
+                return title;
+            }
+        };
+        
+        class Library {
+        private:
+            vector<Book> books;
+        public:
+            void addBook(Book b) {
+                books.push_back(b);
+            }
+            void removeBook(string title) {
+                for (int i = 0; i < books.size(); i++) {
+                    if (books[i].getTitle() == title) {
+                        books.erase(books.begin() + i);
+                        return;
+                    }
+                }
+            }
+            void display() {
+                for (Book b : books) {
+                    cout << "Book: " << b.getTitle() << endl;
+                }
+            }
+        };
+        
+        int main() {
+            Library lib;
+            lib.addBook(Book("Book1"));
+            lib.addBook(Book("Book2"));
+            lib.display();
+            lib.removeBook("Book1");
+            cout << "After removal:" << endl;
+            lib.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Book: Book1
+        Book: Book2
+        After removal:
+        Book: Book2
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>12. Create an Airplane Class</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Airplane {
+        private:
+            string flightNumber;
+            string destination;
+            string departureTime;
+            bool delayed;
+        public:
+            Airplane(string fn, string d, string dt) {
+                flightNumber = fn;
+                destination = d;
+                departureTime = dt;
+                delayed = false;
+            }
+            void delay() {
+                delayed = true;
+            }
+            void checkStatus() {
+                cout << "Flight " << flightNumber << " to " << destination << " at " << departureTime 
+                     << " is " << (delayed ? "Delayed" : "On Time") << endl;
+            }
+        };
+        
+        int main() {
+            Airplane plane("AA123", "New York", "10:00");
+            plane.checkStatus();
+            plane.delay();
+            plane.checkStatus();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Flight AA123 to New York at 10:00 is On Time
+        Flight AA123 to New York at 10:00 is Delayed
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>13. Create an Inventory Class</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class Product {
+        private:
+            string name;
+            int quantity;
+        public:
+            Product(string n, int q) {
+                name = n;
+                quantity = q;
+            }
+            string getName() {
+                return name;
+            }
+            int getQuantity() {
+                return quantity;
+            }
+        };
+        
+        class Inventory {
+        private:
+            vector<Product> products;
+        public:
+            void addProduct(Product p) {
+                products.push_back(p);
+            }
+            void removeProduct(string name) {
+                for (int i = 0; i < products.size(); i++) {
+                    if (products[i].getName() == name) {
+                        products.erase(products.begin() + i);
+                        return;
+                    }
+                }
+            }
+            void checkLowInventory() {
+                for (Product p : products) {
+                    if (p.getQuantity() < 5) {
+                        cout << p.getName() << " is low (Quantity: " << p.getQuantity() << ")" << endl;
+                    }
+                }
+            }
+        };
+        
+        int main() {
+            Inventory inv;
+            inv.addProduct(Product("Pen", 10));
+            inv.addProduct(Product("Paper", 3));
+            inv.checkLowInventory();
+            inv.removeProduct("Paper");
+            cout << "After removal:" << endl;
+            inv.checkLowInventory();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Paper is low (Quantity: 3)
+        After removal:
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>14. Create a School Class</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class School {
+        private:
+            vector<string> students;
+            vector<string> teachers;
+            vector<string> classes;
+        public:
+            void addStudent(string name) {
+                students.push_back(name);
+            }
+            void removeStudent(string name) {
+                for (int i = 0; i < students.size(); i++) {
+                    if (students[i] == name) {
+                        students.erase(students.begin() + i);
+                        return;
+                    }
+                }
+            }
+            void addTeacher(string name) {
+                teachers.push_back(name);
+            }
+            void removeTeacher(string name) {
+                for (int i = 0; i < teachers.size(); i++) {
+                    if (teachers[i] == name) {
+                        teachers.erase(teachers.begin() + i);
+                        return;
+                    }
+                }
+            }
+            void createClass(string name) {
+                classes.push_back(name);
+            }
+            void display() {
+                cout << "Students: "; for (string s : students) cout << s << " "; cout << endl;
+                cout << "Teachers: "; for (string t : teachers) cout << t << " "; cout << endl;
+                cout << "Classes: "; for (string c : classes) cout << c << " "; cout << endl;
+            }
+        };
+        
+        int main() {
+            School school;
+            school.addStudent("Alice");
+            school.addTeacher("Mr. Smith");
+            school.createClass("Math");
+            school.display();
+            school.removeStudent("Alice");
+            cout << "After removal:" << endl;
+            school.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Students: Alice 
+        Teachers: Mr. Smith 
+        Classes: Math 
+        After removal:
+        Students: 
+        Teachers: Mr. Smith 
+        Classes: Math 
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>15. Create a MusicLibrary Class</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        #include <cstdlib>
+        #include <ctime>
+        using namespace std;
+        
+        class MusicLibrary {
+        private:
+            vector<string> songs;
+        public:
+            void addSong(string song) {
+                songs.push_back(song);
+            }
+            void removeSong(string song) {
+                for (int i = 0; i < songs.size(); i++) {
+                    if (songs[i] == song) {
+                        songs.erase(songs.begin() + i);
+                        return;
+                    }
+                }
+            }
+            void playRandomSong() {
+                if (songs.empty()) {
+                    cout << "No songs available!" << endl;
+                } else {
+                    srand(time(0));
+                    int index = rand() % songs.size();
+                    cout << "Playing: " << songs[index] << endl;
+                }
+            }
+        };
+        
+        int main() {
+            MusicLibrary lib;
+            lib.addSong("Song1");
+            lib.addSong("Song2");
+            lib.playRandomSong();
+            lib.removeSong("Song1");
+            lib.playRandomSong();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Playing: Song2
+        Playing: Song2
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>16. Create a Shape Class with Subclasses</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Shape {
+        public:
+            virtual double calculateArea() = 0;
+            virtual double calculatePerimeter() = 0;
+        };
+        
+        class Rectangle : public Shape {
+        private:
+            double width, height;
+        public:
+            Rectangle(double w, double h) {
+                width = w;
+                height = h;
+            }
+            double calculateArea() {
+                return width * height;
+            }
+            double calculatePerimeter() {
+                return 2 * (width + height);
+            }
+        };
+        
+        class Circle : public Shape {
+        private:
+            double radius;
+        public:
+            Circle(double r) {
+                radius = r;
+            }
+            double calculateArea() {
+                return 3.14159 * radius * radius;
+            }
+            double calculatePerimeter() {
+                return 2 * 3.14159 * radius;
+            }
+        };
+        
+        class Triangle : public Shape {
+        private:
+            double a, b, c;
+        public:
+            Triangle(double x, double y, double z) {
+                a = x;
+                b = y;
+                c = z;
+            }
+            double calculateArea() {
+                double s = (a + b + c) / 2;
+                return sqrt(s * (s - a) * (s - b) * (s - c));
+            }
+            double calculatePerimeter() {
+                return a + b + c;
+            }
+        };
+        
+        int main() {
+            Rectangle rect(4, 5);
+            Circle circle(3);
+            Triangle tri(3, 4, 5);
+            cout << "Rectangle Area: " << rect.calculateArea() << ", Perimeter: " << rect.calculatePerimeter() << endl;
+            cout << "Circle Area: " << circle.calculateArea() << ", Perimeter: " << circle.calculatePerimeter() << endl;
+            cout << "Triangle Area: " << tri.calculateArea() << ", Perimeter: " << tri.calculatePerimeter() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Rectangle Area: 20, Perimeter: 18
+        Circle Area: 28.2743, Perimeter: 18.8495
+        Triangle Area: 6, Perimeter: 12
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>17. Create a Movie Class</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class Movie {
+        private:
+            string title;
+            string director;
+            vector<string> actors;
+            vector<string> reviews;
+        public:
+            Movie(string t, string d, vector<string> a) {
+                title = t;
+                director = d;
+                actors = a;
+            }
+            void addReview(string review) {
+                reviews.push_back(review);
+            }
+            void displayReviews() {
+                for (string r : reviews) {
+                    cout << "Review: " << r << endl;
+                }
+            }
+        };
+        
+        int main() {
+            vector<string> actors = {"Actor1", "Actor2"};
+            Movie movie("Movie1", "Director1", actors);
+            movie.addReview("Great film!");
+            movie.addReview("Loved it!");
+            movie.displayReviews();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Review: Great film!
+        Review: Loved it!
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>18. Create a Restaurant Class</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class Restaurant {
+        private:
+            vector<string> menuItems;
+            vector<double> prices;
+            vector<int> ratings;
+        public:
+            void addItem(string item, double price) {
+                menuItems.push_back(item);
+                prices.push_back(price);
+                ratings.push_back(0);
+            }
+            void removeItem(string item) {
+                for (int i = 0; i < menuItems.size(); i++) {
+                    if (menuItems[i] == item) {
+                        menuItems.erase(menuItems.begin() + i);
+                        prices.erase(prices.begin() + i);
+                        ratings.erase(ratings.begin() + i);
+                        return;
+                    }
+                }
+            }
+            void addRating(string item, int rating) {
+                for (int i = 0; i < menuItems.size(); i++) {
+                    if (menuItems[i] == item) {
+                        ratings[i] = rating;
+                        return;
+                    }
+                }
+            }
+            double calculateAverageRating() {
+                double sum = 0;
+                for (int r : ratings) {
+                    sum += r;
+                }
+                return ratings.empty() ? 0 : sum / ratings.size();
+            }
+        };
+        
+        int main() {
+            Restaurant rest;
+            rest.addItem("Pizza", 10.0);
+            rest.addItem("Burger", 5.0);
+            rest.addRating("Pizza", 4);
+            rest.addRating("Burger", 3);
+            cout << "Average Rating: " << rest.calculateAverageRating() << endl;
+            rest.removeItem("Pizza");
+            cout << "After removal, Average Rating: " << rest.calculateAverageRating() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Average Rating: 3.5
+        After removal, Average Rating: 3
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>19. Create a Travel Class for Booking</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class Travel {
+        private:
+            vector<string> flights;
+            vector<string> hotels;
+            vector<string> reservations;
+        public:
+            void searchFlights(string destination) {
+                cout << "Available flights to " << destination << ": Flight1, Flight2" << endl;
+            }
+            void searchHotels(string location) {
+                cout << "Available hotels in " << location << ": Hotel1, Hotel2" << endl;
+            }
+            void bookReservation(string type, string name) {
+                reservations.push_back(type + ": " + name);
+                cout << "Booked " << type << ": " << name << endl;
+            }
+            void cancelReservation(string name) {
+                for (int i = 0; i < reservations.size(); i++) {
+                    if (reservations[i].find(name) != string::npos) {
+                        reservations.erase(reservations.begin() + i);
+                        cout << "Cancelled reservation for " << name << endl;
+                        return;
+                    }
+                }
+            }
+        };
+        
+        int main() {
+            Travel travel;
+            travel.searchFlights("Paris");
+            travel.searchHotels("Paris");
+            travel.bookReservation("Flight", "Flight1");
+            travel.bookReservation("Hotel", "Hotel1");
+            travel.cancelReservation("Flight1");
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Available flights to Paris: Flight1, Flight2
+        Available hotels in Paris: Hotel1, Hotel2
+        Booked Flight: Flight1
+        Booked Hotel: Hotel1
+        Cancelled reservation for Flight1
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>20. Default Constructor Example</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class MyClass {
+        private:
+            int value;
+        public:
+            MyClass() {
+                value = 0;
+            }
+            void display() {
+                cout << "Value: " << value << endl;
+            }
+        };
+        
+        int main() {
+            MyClass obj;
+            obj.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Value: 0
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>21. Parameterized Constructor Example</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class MyClass {
+        private:
+            int value;
+        public:
+            MyClass(int v) {
+                value = v;
+            }
+            void display() {
+                cout << "Value: " << value << endl;
+            }
+        };
+        
+        int main() {
+            MyClass obj(10);
+            obj.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Value: 10
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>22. Copy Constructor Example</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class MyClass {
+        private:
+            int value;
+        public:
+            MyClass(int v) {
+                value = v;
+            }
+            MyClass(const MyClass &obj) {
+                value = obj.value;
+            }
+            void display() {
+                cout << "Value: " << value << endl;
+            }
+        };
+        
+        int main() {
+            MyClass obj1(20);
+            MyClass obj2 = obj1;
+            obj1.display();
+            obj2.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Value: 20
+        Value: 20
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>23. Auto-Generated Roll Number for Students</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Student {
+        private:
+            int rollNo;
+            string name;
+            string className;
+            static int counter;
+        public:
+            Student(string n, string c) {
+                rollNo = ++counter;
+                name = n;
+                className = c;
+            }
+            void display() {
+                cout << "Roll No: " << rollNo << ", Name: " << name << ", Class: " << className << endl;
+            }
+        };
+        int Student::counter = 0;
+        
+        int main() {
+            Student students[10];
+            string name, cls;
+            for (int i = 0; i < 3; i++) {
+                cout << "Enter name and class for student " << i + 1 << ": ";
+                cin >> name >> cls;
+                students[i] = Student(name, cls);
+                students[i].display();
+            }
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Enter name and class for student 1: Alice 10
+        Roll No: 1, Name: Alice, Class: 10
+        Enter name and class for student 2: Bob 11
+        Roll No: 2, Name: Bob, Class: 11
+        Enter name and class for student 3: Charlie 12
+        Roll No: 3, Name: Charlie, Class: 12
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>24. Method Overloading for Area</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Shape {
+        public:
+            double area(double radius) {
+                return 3.14159 * radius * radius;
+            }
+            double area(double length, double width) {
+                return length * width;
+            }
+        };
+        
+        int main() {
+            Shape shape;
+            cout << "Circle Area (radius 5): " << shape.area(5.0) << endl;
+            cout << "Rectangle Area (4x6): " << shape.area(4.0, 6.0) << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Circle Area (radius 5): 78.5397
+        Rectangle Area (4x6): 24
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>25. Person Class with Private Variables</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Person {
+        private:
+            string name;
+            int age;
+            string country;
+        public:
+            void setName(string n) { name = n; }
+            void setAge(int a) { age = a; }
+            void setCountry(string c) { country = c; }
+            string getName() { return name; }
+            int getAge() { return age; }
+            string getCountry() { return country; }
+        };
+        
+        int main() {
+            Person p;
+            p.setName("Alice");
+            p.setAge(25);
+            p.setCountry("USA");
+            cout << "Name: " << p.getName() << ", Age: " << p.getAge() << ", Country: " << p.getCountry() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Name: Alice, Age: 25, Country: USA
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>26. BankAccount Class with Private Variables</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class BankAccount {
+        private:
+            string accountNumber;
+            double balance;
+        public:
+            void setAccountNumber(string an) { accountNumber = an; }
+            void setBalance(double b) { balance = b; }
+            string getAccountNumber() { return accountNumber; }
+            double getBalance() { return balance; }
+        };
+        
+        int main() {
+            BankAccount acc;
+            acc.setAccountNumber("12345");
+            acc.setBalance(1000.50);
+            cout << "Account Number: " << acc.getAccountNumber() << ", Balance: " << acc.getBalance() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Account Number: 12345, Balance: 1000.5
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>27. Rectangle Class with Private Variables</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Rectangle {
+        private:
+            double length;
+            double width;
+        public:
+            void setLength(double l) { length = l; }
+            void setWidth(double w) { width = w; }
+            double getLength() { return length; }
+            double getWidth() { return width; }
+        };
+        
+        int main() {
+            Rectangle rect;
+            rect.setLength(5.0);
+            rect.setWidth(3.0);
+            cout << "Length: " << rect.getLength() << ", Width: " << rect.getWidth() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Length: 5, Width: 3
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>28. Employee Class with Formatted Salary</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Employee {
+        private:
+            int employee_id;
+            string employee_name;
+            double employee_salary;
+        public:
+            void setId(int id) { employee_id = id; }
+            void setName(string n) { employee_name = n; }
+            int getId() { return employee_id; }
+            string getName() { return employee_name; }
+            string getSalary() { return "$" + to_string(employee_salary); }
+            Employee(int id, string n, double s) {
+                employee_id = id;
+                employee_name = n;
+                employee_salary = s;
+            }
+        };
+        
+        int main() {
+            Employee emp(1, "Alice", 50000);
+            cout << "ID: " << emp.getId() << ", Name: " << emp.getName() << ", Salary: " << emp.getSalary() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        ID: 1, Name: Alice, Salary: $50000.000000
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>29. Circle Class with Calculations</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        using namespace std;
+        
+        class Circle {
+        private:
+            double radius;
+        public:
+            void setRadius(double r) { radius = r; }
+            double getRadius() { return radius; }
+            double calculateArea() { return 3.14159 * radius * radius; }
+            double calculatePerimeter() { return 2 * 3.14159 * radius; }
+        };
+        
+        int main() {
+            Circle circle;
+            circle.setRadius(5.0);
+            cout << "Radius: " << circle.getRadius() << endl;
+            cout << "Area: " << circle.calculateArea() << endl;
+            cout << "Perimeter: " << circle.calculatePerimeter() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Radius: 5
+        Area: 78.5397
+        Perimeter: 31.4159
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>30. Car Class with Private Variables</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        using namespace std;
+        
+        class Car {
+        private:
+            string company_name;
+            string model_name;
+            int year;
+            double mileage;
+        public:
+            void setCompanyName(string cn) { company_name = cn; }
+            void setModelName(string mn) { model_name = mn; }
+            void setYear(int y) { year = y; }
+            string getCompanyName() { return company_name; }
+            string getModelName() { return model_name; }
+            int getYear() { return year; }
+            double getMileage() { return mileage; }
+            Car(string cn, string mn, int y, double m) {
+                company_name = cn;
+                model_name = mn;
+                year = y;
+                mileage = m;
+            }
+        };
+        
+        int main() {
+            Car car("Toyota", "Camry", 2020, 15.5);
+            cout << "Company: " << car.getCompanyName() << ", Model: " << car.getModelName() 
+                 << ", Year: " << car.getYear() << ", Mileage: " << car.getMileage() << endl;
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Company: Toyota, Model: Camry, Year: 2020, Mileage: 15.5
+            </pre>
+        </div>
+        
+        
+        
+        <div class="program">
+            <h2>31. Student Class with Grade Validation</h2>
+            <h3>Source Code:</h3>
+            <pre><code>
+        #include <iostream>
+        #include <string>
+        #include <vector>
+        using namespace std;
+        
+        class Student {
+        private:
+            int student_id;
+            string student_name;
+            vector<double> grades;
+        public:
+            void setStudentId(int id) { student_id = id; }
+            void setStudentName(string n) { student_name = n; }
+            int getStudentId() { return student_id; }
+            string getStudentName() { return student_name; }
+            void addGrade(double grade) {
+                if (grade >= 0 && grade <= 100) {
+                    grades.push_back(grade);
+                    cout << "Grade " << grade << " added!" << endl;
+                } else {
+                    cout << "Invalid grade!" << endl;
+                }
+            }
+            void display() {
+                cout << "ID: " << student_id << ", Name: " << student_name << ", Grades: ";
+                for (double g : grades) cout << g << " ";
+                cout << endl;
+            }
+        };
+        
+        int main() {
+            Student stu;
+            stu.setStudentId(1);
+            stu.setStudentName("Alice");
+            stu.addGrade(85);
+            stu.addGrade(101);
+            stu.display();
+            return 0;
+        }
+            </code></pre>
+            <h3>Output:</h3>
+            <pre>
+        Grade 85 added!
+        Invalid grade!
+        ID: 1, Name: Alice, Grades: 85 
+            </pre>
+        </div>
+      </body>
+</html>
